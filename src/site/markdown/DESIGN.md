@@ -3,9 +3,11 @@
 ***
 
 ## Scope
+
 WarunQ adalah produk perangkat lunak generik yang muncul dari keprihatinan pengembang terhadap warung-warung kecil di Indonesia yang masih melakukan pembukuan konvensional, sehingga kami berpikir untuk menciptakan produk berupa aplikasi desktop untuk dapat melakukan pembukuan secara digital.
 
 ## Functional Requirements
+
 ![Use Case Diagram](../../../out/use_case_diagram.png)
 - Daftar
 - Masuk
@@ -13,6 +15,10 @@ WarunQ adalah produk perangkat lunak generik yang muncul dari keprihatinan penge
 - Pembukuan
 
 ## Representation
+
+### ERD
+
+![ER Diagram] (src/main/resources/diagrams/db_warunq.drawio.png)
 
 ## Limitation
 
