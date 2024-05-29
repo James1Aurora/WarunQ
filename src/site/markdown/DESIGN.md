@@ -18,7 +18,7 @@ WarunQ adalah produk perangkat lunak generik yang muncul dari keprihatinan penge
 
 ### ERD
 
-![ER Diagram] (src/main/resources/diagrams/db_warunq.drawio.png)
+![ER Diagram] (../../main/resources/diagrams/db_warunq.drawio.png)
 
 ## Limitation
 
