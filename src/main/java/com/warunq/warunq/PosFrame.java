@@ -49,13 +49,13 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        berandaButton = new javax.swing.JButton();
-        penyimpananButton = new javax.swing.JButton();
-        laporanButton = new javax.swing.JButton();
-        pengaturanButton = new javax.swing.JButton();
-        keluarButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
+        inventoryButton = new javax.swing.JButton();
+        reportButton = new javax.swing.JButton();
+        settingsButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         warunqLabel = new javax.swing.JLabel();
-        kasirButton = new javax.swing.JButton();
+        posButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         kameraPanel = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -77,66 +77,66 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
 
-        berandaButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        berandaButton.setText("Beranda");
-        berandaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        berandaButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        berandaButton.addActionListener(new java.awt.event.ActionListener() {
+        homeButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        homeButton.setText("Beranda");
+        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                berandaButtonActionPerformed(evt);
+                homeButtonActionPerformed(evt);
             }
         });
 
-        penyimpananButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        penyimpananButton.setText("Penyimpanan");
-        penyimpananButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        penyimpananButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        penyimpananButton.addActionListener(new java.awt.event.ActionListener() {
+        inventoryButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        inventoryButton.setText("Penyimpanan");
+        inventoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inventoryButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                penyimpananButtonActionPerformed(evt);
+                inventoryButtonActionPerformed(evt);
             }
         });
 
-        laporanButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        laporanButton.setText("Laporan");
-        laporanButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        laporanButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        laporanButton.addActionListener(new java.awt.event.ActionListener() {
+        reportButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        reportButton.setText("Laporan");
+        reportButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reportButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        reportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                laporanButtonActionPerformed(evt);
+                reportButtonActionPerformed(evt);
             }
         });
 
-        pengaturanButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        pengaturanButton.setText("Pengaturan");
-        pengaturanButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pengaturanButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        pengaturanButton.addActionListener(new java.awt.event.ActionListener() {
+        settingsButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        settingsButton.setText("Pengaturan");
+        settingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pengaturanButtonActionPerformed(evt);
+                settingsButtonActionPerformed(evt);
             }
         });
 
-        keluarButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        keluarButton.setText("Keluar");
-        keluarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        keluarButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        keluarButton.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        logoutButton.setText("Keluar");
+        logoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keluarButtonActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
         warunqLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 36)); // NOI18N
         warunqLabel.setText("WarunQ");
 
-        kasirButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        kasirButton.setText("Kasir");
-        kasirButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        kasirButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        kasirButton.addActionListener(new java.awt.event.ActionListener() {
+        posButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        posButton.setText("Kasir");
+        posButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        posButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        posButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kasirButtonActionPerformed(evt);
+                posButtonActionPerformed(evt);
             }
         });
 
@@ -151,12 +151,12 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(kasirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(keluarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pengaturanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(penyimpananButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(berandaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(laporanButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                    .addComponent(posButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(settingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -165,17 +165,17 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 .addContainerGap()
                 .addComponent(warunqLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(berandaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kasirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(posButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(penyimpananButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(laporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pengaturanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
@@ -236,33 +236,33 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void berandaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_berandaButtonActionPerformed
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_berandaButtonActionPerformed
+    }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void penyimpananButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penyimpananButtonActionPerformed
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_penyimpananButtonActionPerformed
+    }//GEN-LAST:event_inventoryButtonActionPerformed
 
-    private void laporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanButtonActionPerformed
+    private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_laporanButtonActionPerformed
+    }//GEN-LAST:event_reportButtonActionPerformed
 
-    private void pengaturanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengaturanButtonActionPerformed
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pengaturanButtonActionPerformed
+    }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_keluarButtonActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void kasirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kasirButtonActionPerformed
+    private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kasirButtonActionPerformed
+    }//GEN-LAST:event_posButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,7 +362,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton berandaButton;
+    private javax.swing.JButton homeButton;
+    private javax.swing.JButton inventoryButton;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -372,11 +373,10 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel kameraPanel;
-    private javax.swing.JButton kasirButton;
-    private javax.swing.JButton keluarButton;
-    private javax.swing.JButton laporanButton;
-    private javax.swing.JButton pengaturanButton;
-    private javax.swing.JButton penyimpananButton;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JButton posButton;
+    private javax.swing.JButton reportButton;
+    private javax.swing.JButton settingsButton;
     private javax.swing.JLabel warunqLabel;
     // End of variables declaration//GEN-END:variables
 }

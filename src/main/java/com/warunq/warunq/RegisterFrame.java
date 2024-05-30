@@ -15,12 +15,12 @@ import java.sql.SQLException;
  *
  * @author Win10
  */
-public class DaftarFrame extends javax.swing.JFrame {
+public class RegisterFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form DaftarFrame
      */
-    public DaftarFrame() {
+    public RegisterFrame() {
         initComponents();
     }
 
@@ -34,16 +34,16 @@ public class DaftarFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         daftarFrameLabel = new javax.swing.JLabel();
-        namaAkunLabel = new javax.swing.JLabel();
-        namaAkunField = new javax.swing.JTextField();
-        kataSandiLabel = new javax.swing.JLabel();
-        kataSandiField = new javax.swing.JPasswordField();
-        konfirmasiLabel = new javax.swing.JLabel();
-        konfirmasiField = new javax.swing.JPasswordField();
-        daftarkanButton = new javax.swing.JButton();
+        usernameLabel = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        confirmationLabel = new javax.swing.JLabel();
+        confirmationField = new javax.swing.JPasswordField();
+        registerButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        masukButtonLabel = new javax.swing.JLabel();
-        masukButton = new javax.swing.JButton();
+        loginButtonLabel = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WarunQ - Daftar");
@@ -53,34 +53,34 @@ public class DaftarFrame extends javax.swing.JFrame {
         daftarFrameLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 24)); // NOI18N
         daftarFrameLabel.setText("Daftar");
 
-        namaAkunLabel.setLabelFor(namaAkunField);
-        namaAkunLabel.setText("Nama Akun");
+        usernameLabel.setLabelFor(usernameField);
+        usernameLabel.setText("Nama Akun");
 
-        namaAkunField.addActionListener(new java.awt.event.ActionListener() {
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaAkunFieldActionPerformed(evt);
+                usernameFieldActionPerformed(evt);
             }
         });
 
-        kataSandiLabel.setLabelFor(kataSandiField);
-        kataSandiLabel.setText("Kata Sandi");
+        passwordLabel.setLabelFor(passwordField);
+        passwordLabel.setText("Kata Sandi");
 
-        kataSandiField.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kataSandiFieldActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
 
-        konfirmasiLabel.setLabelFor(konfirmasiField);
-        konfirmasiLabel.setText("Ketik Ulang Password :");
+        confirmationLabel.setLabelFor(confirmationField);
+        confirmationLabel.setText("Ketik Ulang Password :");
 
-        daftarkanButton.setBackground(new java.awt.Color(244, 206, 20));
-        daftarkanButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        daftarkanButton.setText("Daftarkan");
-        daftarkanButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        daftarkanButton.addActionListener(new java.awt.event.ActionListener() {
+        registerButton.setBackground(new java.awt.Color(244, 206, 20));
+        registerButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        registerButton.setText("Daftarkan");
+        registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftarkanButtonActionPerformed(evt);
+                registerButtonActionPerformed(evt);
             }
         });
 
@@ -97,17 +97,17 @@ public class DaftarFrame extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        masukButtonLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 10)); // NOI18N
-        masukButtonLabel.setLabelFor(masukButton);
-        masukButtonLabel.setText("Sudah Memiliki Akun?");
+        loginButtonLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 10)); // NOI18N
+        loginButtonLabel.setLabelFor(loginButton);
+        loginButtonLabel.setText("Sudah Memiliki Akun?");
 
-        masukButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        masukButton.setText("Masuk");
-        masukButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
-        masukButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        masukButton.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        loginButton.setText("Masuk");
+        loginButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
+        loginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masukButtonActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
@@ -120,29 +120,29 @@ public class DaftarFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(konfirmasiField)
-                            .addComponent(kataSandiField)
+                            .addComponent(confirmationField)
+                            .addComponent(passwordField)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(namaAkunLabel)
-                                    .addComponent(konfirmasiLabel)
-                                    .addComponent(kataSandiLabel)
+                                    .addComponent(usernameLabel)
+                                    .addComponent(confirmationLabel)
+                                    .addComponent(passwordLabel)
                                     .addComponent(daftarFrameLabel))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(namaAkunField))
+                            .addComponent(usernameField))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(96, 96, 96)
-                                .addComponent(daftarkanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(88, 88, 88)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(masukButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(masukButtonLabel))))
+                                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(loginButtonLabel))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -152,23 +152,23 @@ public class DaftarFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(daftarFrameLabel)
                 .addGap(18, 18, 18)
-                .addComponent(namaAkunLabel)
+                .addComponent(usernameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(namaAkunField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kataSandiLabel)
+                .addComponent(passwordLabel)
                 .addGap(18, 18, 18)
-                .addComponent(kataSandiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(konfirmasiLabel)
+                .addComponent(confirmationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(konfirmasiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(daftarkanButton)
+                .addComponent(registerButton)
                 .addGap(18, 18, 18)
-                .addComponent(masukButtonLabel)
+                .addComponent(loginButtonLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(masukButton)
+                .addComponent(loginButton)
                 .addContainerGap(18, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -177,20 +177,20 @@ public class DaftarFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearForm() {
-        namaAkunField.setText("");
-        kataSandiField.setText("");
-        konfirmasiField.setText("");
+        usernameField.setText("");
+        passwordField.setText("");
+        confirmationField.setText("");
     }
     
-    private void namaAkunFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaAkunFieldActionPerformed
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_namaAkunFieldActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void daftarkanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarkanButtonActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
-        String namaAkun = namaAkunField.getText();
-        char[] kataSandi = kataSandiField.getPassword();
-        char[] konfirmasi = konfirmasiField.getPassword();
+        String namaAkun = usernameField.getText();
+        char[] kataSandi = passwordField.getPassword();
+        char[] konfirmasi = confirmationField.getPassword();
 
         String querySQL = "SELECT `nama` FROM `akun` WHERE `nama` = '" + namaAkun + "'";
 
@@ -210,7 +210,7 @@ public class DaftarFrame extends javax.swing.JFrame {
 
             if (!resultSet.next()) {
                 JOptionPane.showMessageDialog(null, "Akun berhasil didaftarkan!");
-                MasukFrame masukFrame = new MasukFrame();
+                LoginFrame masukFrame = new LoginFrame();
                 masukFrame.setVisible(true);
                 this.setVisible(false);
             } else {
@@ -221,18 +221,18 @@ public class DaftarFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Koneksi gagal terhubung: " + e.getMessage());
         }
 
-    }//GEN-LAST:event_daftarkanButtonActionPerformed
+    }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void kataSandiFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kataSandiFieldActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kataSandiFieldActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
-    private void masukButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukButtonActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        MasukFrame masukFrame = new MasukFrame();
+        LoginFrame masukFrame = new LoginFrame();
         masukFrame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_masukButtonActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,35 +251,36 @@ public class DaftarFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DaftarFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DaftarFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DaftarFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DaftarFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DaftarFrame().setVisible(true);
+                new RegisterFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField confirmationField;
+    private javax.swing.JLabel confirmationLabel;
     private javax.swing.JLabel daftarFrameLabel;
-    private javax.swing.JButton daftarkanButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField kataSandiField;
-    private javax.swing.JLabel kataSandiLabel;
-    private javax.swing.JPasswordField konfirmasiField;
-    private javax.swing.JLabel konfirmasiLabel;
-    private javax.swing.JButton masukButton;
-    private javax.swing.JLabel masukButtonLabel;
-    private javax.swing.JTextField namaAkunField;
-    private javax.swing.JLabel namaAkunLabel;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JLabel loginButtonLabel;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JButton registerButton;
+    private javax.swing.JTextField usernameField;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -272,12 +272,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="kasirButton" pref="134" max="32767" attributes="0"/>
-                      <Component id="keluarButton" max="32767" attributes="0"/>
-                      <Component id="pengaturanButton" max="32767" attributes="0"/>
-                      <Component id="penyimpananButton" max="32767" attributes="0"/>
-                      <Component id="berandaButton" max="32767" attributes="0"/>
-                      <Component id="laporanButton" alignment="1" pref="134" max="32767" attributes="0"/>
+                      <Component id="posButton" pref="134" max="32767" attributes="0"/>
+                      <Component id="logoutButton" max="32767" attributes="0"/>
+                      <Component id="settingsButton" max="32767" attributes="0"/>
+                      <Component id="inventoryButton" max="32767" attributes="0"/>
+                      <Component id="homeButton" max="32767" attributes="0"/>
+                      <Component id="reportButton" alignment="1" pref="134" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
@@ -289,24 +289,24 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="warunqLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="berandaButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="homeButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="kasirButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="posButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="penyimpananButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="inventoryButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="laporanButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="reportButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pengaturanButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="settingsButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="keluarButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="logoutButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="berandaButton">
+        <Component class="javax.swing.JButton" name="homeButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -315,10 +315,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="berandaButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="penyimpananButton">
+        <Component class="javax.swing.JButton" name="inventoryButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -327,10 +327,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="penyimpananButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inventoryButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="laporanButton">
+        <Component class="javax.swing.JButton" name="reportButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -339,10 +339,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="laporanButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reportButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="pengaturanButton">
+        <Component class="javax.swing.JButton" name="settingsButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -351,10 +351,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pengaturanButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settingsButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="keluarButton">
+        <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -363,7 +363,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keluarButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="warunqLabel">
@@ -374,7 +374,7 @@
             <Property name="text" type="java.lang.String" value="WarunQ"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="kasirButton">
+        <Component class="javax.swing.JButton" name="posButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -383,7 +383,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kasirButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="posButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

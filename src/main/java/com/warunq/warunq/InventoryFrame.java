@@ -8,12 +8,12 @@ package com.warunq.warunq;
  *
  * @author Win10
  */
-public class PenyimpananFrame extends javax.swing.JFrame {
+public class InventoryFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form inventory
      */
-    public PenyimpananFrame() {
+    public InventoryFrame() {
         initComponents();
     }
 
@@ -50,13 +50,13 @@ public class PenyimpananFrame extends javax.swing.JFrame {
         buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        buttonHome = new javax.swing.JButton();
-        buttonInventory = new javax.swing.JButton();
-        buttonReport = new javax.swing.JButton();
-        buttonSetting = new javax.swing.JButton();
-        buttonExit = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
+        inventoryButton = new javax.swing.JButton();
+        reportButton = new javax.swing.JButton();
+        settingsButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        buttonCash = new javax.swing.JButton();
+        posButton = new javax.swing.JButton();
 
         jButton5.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
         jButton5.setText("Dashboard");
@@ -284,66 +284,66 @@ public class PenyimpananFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
 
-        buttonHome.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonHome.setText("Beranda");
-        buttonHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonHome.addActionListener(new java.awt.event.ActionListener() {
+        homeButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        homeButton.setText("Beranda");
+        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHomeActionPerformed(evt);
+                homeButtonActionPerformed(evt);
             }
         });
 
-        buttonInventory.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonInventory.setText("Penyimpanan");
-        buttonInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonInventory.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonInventory.addActionListener(new java.awt.event.ActionListener() {
+        inventoryButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        inventoryButton.setText("Penyimpanan");
+        inventoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inventoryButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonInventoryActionPerformed(evt);
+                inventoryButtonActionPerformed(evt);
             }
         });
 
-        buttonReport.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonReport.setText("Laporan");
-        buttonReport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonReport.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonReport.addActionListener(new java.awt.event.ActionListener() {
+        reportButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        reportButton.setText("Laporan");
+        reportButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reportButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        reportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonReportActionPerformed(evt);
+                reportButtonActionPerformed(evt);
             }
         });
 
-        buttonSetting.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonSetting.setText("Pengaturan");
-        buttonSetting.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonSetting.addActionListener(new java.awt.event.ActionListener() {
+        settingsButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        settingsButton.setText("Pengaturan");
+        settingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSettingActionPerformed(evt);
+                settingsButtonActionPerformed(evt);
             }
         });
 
-        buttonExit.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonExit.setText("Keluar");
-        buttonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonExit.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        logoutButton.setText("Keluar");
+        logoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExitActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 36)); // NOI18N
         jLabel3.setText("WarunQ");
 
-        buttonCash.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        buttonCash.setText("Kasir");
-        buttonCash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonCash.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonCash.addActionListener(new java.awt.event.ActionListener() {
+        posButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
+        posButton.setText("Kasir");
+        posButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        posButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        posButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCashActionPerformed(evt);
+                posButtonActionPerformed(evt);
             }
         });
 
@@ -358,12 +358,12 @@ public class PenyimpananFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(buttonCash, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(buttonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonSetting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonReport, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                    .addComponent(posButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(settingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -372,17 +372,17 @@ public class PenyimpananFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCash, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(posButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonReport, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -405,29 +405,29 @@ public class PenyimpananFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonHomeActionPerformed
+    }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void buttonInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInventoryActionPerformed
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonInventoryActionPerformed
+    }//GEN-LAST:event_inventoryButtonActionPerformed
 
-    private void buttonReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReportActionPerformed
+    private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonReportActionPerformed
+    }//GEN-LAST:event_reportButtonActionPerformed
 
-    private void buttonSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSettingActionPerformed
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonSettingActionPerformed
+    }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExitActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
@@ -441,9 +441,9 @@ public class PenyimpananFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sortBoxActionPerformed
 
-    private void buttonCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCashActionPerformed
+    private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCashActionPerformed
+    }//GEN-LAST:event_posButtonActionPerformed
 
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
@@ -478,39 +478,37 @@ public class PenyimpananFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PenyimpananFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PenyimpananFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PenyimpananFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PenyimpananFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PenyimpananFrame().setVisible(true);
+                new InventoryFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCash;
-    private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonHome;
-    private javax.swing.JButton buttonInventory;
-    private javax.swing.JButton buttonReport;
     private javax.swing.JButton buttonSearch;
-    private javax.swing.JButton buttonSetting;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;
     private javax.swing.JTextField hargaBeliField;
     private javax.swing.JTextField hargaJualField;
+    private javax.swing.JButton homeButton;
     private javax.swing.JTextField idField;
+    private javax.swing.JButton inventoryButton;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -526,8 +524,12 @@ public class PenyimpananFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField kuantitasField;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JButton posButton;
     private javax.swing.JTextField produkField;
+    private javax.swing.JButton reportButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JButton settingsButton;
     private javax.swing.JComboBox<String> sortBox;
     // End of variables declaration//GEN-END:variables
 }

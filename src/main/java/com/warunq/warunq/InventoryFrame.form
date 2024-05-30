@@ -463,12 +463,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="buttonCash" pref="134" max="32767" attributes="0"/>
-                      <Component id="buttonExit" max="32767" attributes="0"/>
-                      <Component id="buttonSetting" max="32767" attributes="0"/>
-                      <Component id="buttonInventory" max="32767" attributes="0"/>
-                      <Component id="buttonHome" max="32767" attributes="0"/>
-                      <Component id="buttonReport" alignment="1" pref="134" max="32767" attributes="0"/>
+                      <Component id="posButton" pref="134" max="32767" attributes="0"/>
+                      <Component id="logoutButton" max="32767" attributes="0"/>
+                      <Component id="settingsButton" max="32767" attributes="0"/>
+                      <Component id="inventoryButton" max="32767" attributes="0"/>
+                      <Component id="homeButton" max="32767" attributes="0"/>
+                      <Component id="reportButton" alignment="1" pref="134" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
@@ -480,24 +480,24 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="buttonHome" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="homeButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonCash" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="posButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonInventory" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="inventoryButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonReport" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="reportButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonSetting" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="settingsButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonExit" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="logoutButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="buttonHome">
+        <Component class="javax.swing.JButton" name="homeButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -509,10 +509,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonInventory">
+        <Component class="javax.swing.JButton" name="inventoryButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -524,10 +524,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonInventoryActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inventoryButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonReport">
+        <Component class="javax.swing.JButton" name="reportButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -539,10 +539,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonReportActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reportButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonSetting">
+        <Component class="javax.swing.JButton" name="settingsButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -554,10 +554,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSettingActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settingsButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonExit">
+        <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -569,7 +569,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonExitActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -580,7 +580,7 @@
             <Property name="text" type="java.lang.String" value="WarunQ"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCash">
+        <Component class="javax.swing.JButton" name="posButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="RobotoMono Nerd Font Mono Md" size="14" style="0"/>
@@ -592,7 +592,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCashActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="posButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
