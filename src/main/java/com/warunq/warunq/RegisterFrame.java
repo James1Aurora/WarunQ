@@ -7,6 +7,7 @@ package com.warunq.warunq;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -176,30 +177,23 @@ public class RegisterFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clearForm() {
-        usernameField.setText("");
-        passwordField.setText("");
-        confirmationField.setText("");
-    }
-    
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
-        String namaAkun = usernameField.getText();
-        char[] kataSandi = passwordField.getPassword();
-        char[] konfirmasi = confirmationField.getPassword();
+        String username = usernameField.getText();
+        char[] password = passwordField.getPassword();
+        char[] confirmation = confirmationField.getPassword();
 
-        String querySQL = "SELECT `nama` FROM `akun` WHERE `nama` = '" + namaAkun + "'";
+        String querySQL = "SELECT `nama` FROM `akun` WHERE `nama` = '" + username + "'";
 
-        if (namaAkun.isBlank() || kataSandi.length == 0 || konfirmasi.length == 0) {
+        if (username.isBlank() || password.length == 0 || confirmation.length == 0) {
             JOptionPane.showMessageDialog(null, "Silakan mengisi kolom nama akun dan kata sandi.");
-        } else if (!Arrays.equals(kataSandi, konfirmasi)) {
+        } else if (!Arrays.equals(password, confirmation)) {
             JOptionPane.showMessageDialog(null, "Kata sandi tidak sama. Periksa kembali kata sandi yang Anda ketik.");
-            clearForm();
-        }
+        } else
 
         try {
             Connection connection = (Connection)db_koneksi.konfigurasi_koneksiDB();
@@ -209,6 +203,16 @@ public class RegisterFrame extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery(querySQL);
 
             if (!resultSet.next()) {
+                querySQL = "INSERT INTO `akun` (`nama`, `kata_sandi`) VALUES (?, ?)";
+                
+                PreparedStatement preparedStatement = connection.prepareStatement(querySQL);
+                
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, new String(password));
+                
+                int rowsInserted = preparedStatement.executeUpdate();
+                System.out.println("Rows inserted: " + rowsInserted);
+                
                 JOptionPane.showMessageDialog(null, "Akun berhasil didaftarkan!");
                 LoginFrame masukFrame = new LoginFrame();
                 masukFrame.setVisible(true);

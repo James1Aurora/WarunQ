@@ -21,7 +21,7 @@ public class db_koneksi {
         try {
             String user = "avnadmin";
             String password = "AVNS_dHcesTccniEeErK2qOH";
-            String url = "jdbc:mysql://mysql-warunq-warunq.d.aivencloud.com:28737/defaultdb?sslmode=require";
+            String url = "jdbc:mysql://mysql-warunq-warunq.d.aivencloud.com:28737/db_warunq?sslmode=require";
 
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             koneksi = DriverManager.getConnection(url, user, password);

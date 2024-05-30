@@ -4,6 +4,8 @@
  */
 package com.warunq.warunq;
 
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Win10
@@ -194,14 +196,20 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         // TODO add your handling code here:
+        InventoryFrame inventoryFrame = new InventoryFrame();
+        inventoryFrame.setVisible(true);
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
         // TODO add your handling code here:
+        ReportFrame reportFrame = new ReportFrame();
+        reportFrame.setVisible(true);
     }//GEN-LAST:event_reportButtonActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
+        SettingsFrame settingsFrame = new SettingsFrame();
+        settingsFrame.setVisible(true);
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -218,6 +226,8 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
+        PosFrame posFrame = new PosFrame();
+        posFrame.setVisible(true);
     }//GEN-LAST:event_posButtonActionPerformed
 
     /**

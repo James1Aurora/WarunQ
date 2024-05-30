@@ -212,12 +212,13 @@ public class LoginFrame extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery(querySQL);
 
             if (resultSet.next()) {
-                JOptionPane.showMessageDialog(null, "Selamat Datang!");
+                JOptionPane.showMessageDialog(null, "Selamat Datang, " + username + "!");
                 HomeFrame dashboardFrame = new HomeFrame();
                 dashboardFrame.setVisible(true);
                 this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Kamu Gagal Masuk");
+                clearField();
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Database gagal terhubung");
@@ -227,8 +228,8 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        HomeFrame dashboardFrame = new HomeFrame();
-        dashboardFrame.setVisible(true);
+        RegisterFrame registerFrame = new RegisterFrame();
+        registerFrame.setVisible(true);
         this.setVisible(false);
     }// GEN-LAST:event_jButton2ActionPerformed
 
@@ -276,6 +277,11 @@ public class LoginFrame extends javax.swing.JFrame {
                 new LoginFrame().setVisible(true);
             }
         });
+    }
+    
+    private void clearField() {
+        usernameField.setText("");
+        passwordField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

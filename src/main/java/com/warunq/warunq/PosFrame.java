@@ -16,6 +16,8 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +31,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private WebcamPanel panel = null;
     private Webcam webcam = null;
+    private Executor executor = Executors.newSingleThreadExecutor(this);
     
     /**
      * Creates new form inventory
@@ -176,7 +179,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -184,8 +187,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         kameraPanel.setBackground(new java.awt.Color(0, 0, 0));
         kameraPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 2, true));
         kameraPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 180, 120));
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 160, 20));
+        jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 640, 360));
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 160, 20));
 
         jPanel1.setBackground(new java.awt.Color(73, 94, 87));
 
@@ -211,7 +214,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 160, 20));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, 160, 20));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,12 +228,15 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -315,7 +321,9 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         panel.setPreferredSize(size);
         panel.setFPSDisplayed(true);
         
-        kameraPanel.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 120));
+        kameraPanel.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+        
+        executor.execute(this);
     }
     
     @Override
