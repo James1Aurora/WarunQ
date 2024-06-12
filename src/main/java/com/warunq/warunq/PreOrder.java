@@ -36,6 +36,19 @@ public class PreOrder extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         sortComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        produkField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        kuantitasField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        hargaBeliField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        hargaJualField = new javax.swing.JTextField();
+        buttonTambah = new javax.swing.JButton();
+        buttonUbah = new javax.swing.JButton();
+        buttonHapus = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
         inventoryButton = new javax.swing.JButton();
@@ -63,34 +76,34 @@ public class PreOrder extends javax.swing.JFrame {
 
         laporanFrameLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 36)); // NOI18N
         laporanFrameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        laporanFrameLabel.setText("PRE-ORDER");
+        laporanFrameLabel.setText("Pesanan");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(303, 303, 303)
                 .addComponent(laporanFrameLabel)
-                .addGap(114, 114, 114))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(14, 14, 14)
                 .addComponent(laporanFrameLabel)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         reportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Tengat Pesanan", "Nama Pemesan", "No.", "Nama Barang", "Kuantitas", "Sub-Total"
+                "Tengat Pesanan", "Nama Barang", "Kuantitas", "Sub-Total"
             }
         ));
         jScrollPane1.setViewportView(reportTable);
@@ -119,27 +132,120 @@ public class PreOrder extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 8)); // NOI18N
-        jLabel2.setText("Urutkan Sesuai");
+        jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 10)); // NOI18N
+        jLabel2.setText("Nama Pemesan");
+
+        jLabel1.setBackground(new java.awt.Color(244, 206, 20));
+        jLabel1.setFont(new java.awt.Font("RobotoMono Nerd Font", 2, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText(" Rp. ");
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 3, true));
+
+        jLabel3.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(244, 206, 20));
+        jLabel3.setText("TOTAL : ");
+
+        jLabel5.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        jLabel5.setText("Nama Pemesan");
+
+        produkField.setText(" ");
+
+        jLabel6.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        jLabel6.setText("Kuantitas");
+
+        kuantitasField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kuantitasFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        jLabel7.setText("Nama Barang");
+
+        hargaBeliField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hargaBeliFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        jLabel8.setText("Tengat Pesanan");
+
+        hargaJualField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hargaJualFieldActionPerformed(evt);
+            }
+        });
+
+        buttonTambah.setBackground(new java.awt.Color(0, 153, 0));
+        buttonTambah.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        buttonTambah.setForeground(new java.awt.Color(255, 255, 255));
+        buttonTambah.setText("Tambah");
+        buttonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        buttonUbah.setBackground(new java.awt.Color(73, 94, 87));
+        buttonUbah.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        buttonUbah.setForeground(new java.awt.Color(255, 255, 255));
+        buttonUbah.setText("Ubah");
+        buttonUbah.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
+        buttonUbah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        buttonHapus.setBackground(new java.awt.Color(204, 0, 0));
+        buttonHapus.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        buttonHapus.setForeground(new java.awt.Color(255, 255, 255));
+        buttonHapus.setText("Hapus");
+        buttonHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1)))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 45, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(produkField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(hargaBeliField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(kuantitasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(hargaJualField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,15 +253,35 @@ public class PreOrder extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchButton)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(produkField)
+                    .addComponent(kuantitasField)
+                    .addComponent(hargaBeliField)
+                    .addComponent(hargaJualField))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
@@ -249,7 +375,7 @@ public class PreOrder extends javax.swing.JFrame {
                 .addComponent(warunqLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(posButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +385,7 @@ public class PreOrder extends javax.swing.JFrame {
                 .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,8 +394,8 @@ public class PreOrder extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -320,6 +446,18 @@ public class PreOrder extends javax.swing.JFrame {
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_posButtonActionPerformed
+
+    private void kuantitasFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kuantitasFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kuantitasFieldActionPerformed
+
+    private void hargaBeliFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaBeliFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hargaBeliFieldActionPerformed
+
+    private void hargaJualFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaJualFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hargaJualFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,17 +510,30 @@ public class PreOrder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonTambah;
+    private javax.swing.JButton buttonUbah;
+    private javax.swing.JTextField hargaBeliField;
+    private javax.swing.JTextField hargaJualField;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField kuantitasField;
     private javax.swing.JLabel laporanFrameLabel;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton posButton;
+    private javax.swing.JTextField produkField;
     private javax.swing.JButton reportButton;
     private javax.swing.JTable reportTable;
     private javax.swing.JButton searchButton;
