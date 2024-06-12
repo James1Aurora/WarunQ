@@ -31,24 +31,24 @@ public class InventoryFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        inventoryTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
-        buttonSearch = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
         sortBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        idField = new javax.swing.JTextField();
-        produkField = new javax.swing.JTextField();
-        hargaBeliField = new javax.swing.JTextField();
-        hargaJualField = new javax.swing.JTextField();
+        kodeBarangField = new javax.swing.JTextField();
+        namaField = new javax.swing.JTextField();
+        hargaField = new javax.swing.JTextField();
+        biayaBelanjaField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        kuantitasField = new javax.swing.JTextField();
-        buttonTambah = new javax.swing.JButton();
-        buttonUbah = new javax.swing.JButton();
-        buttonHapus = new javax.swing.JButton();
+        stokField = new javax.swing.JTextField();
+        addButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
         inventoryButton = new javax.swing.JButton();
@@ -95,7 +95,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        inventoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -106,7 +106,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                 "Id", "Nama Produk", "Tanggal Belanja", "Kuantitas", "Harga Beli", "Harga Jual"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(inventoryTable);
 
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,14 +114,14 @@ public class InventoryFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonSearch.setBackground(new java.awt.Color(244, 206, 20));
-        buttonSearch.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        buttonSearch.setText("Cari");
-        buttonSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonSearch.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setBackground(new java.awt.Color(244, 206, 20));
+        searchButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        searchButton.setText("Cari");
+        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -135,23 +135,23 @@ public class InventoryFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 10)); // NOI18N
         jLabel2.setText("Urutkan Sesuai");
 
-        idField.addActionListener(new java.awt.event.ActionListener() {
+        kodeBarangField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idFieldActionPerformed(evt);
+                kodeBarangFieldActionPerformed(evt);
             }
         });
 
-        produkField.setText(" ");
+        namaField.setText(" ");
 
-        hargaBeliField.addActionListener(new java.awt.event.ActionListener() {
+        hargaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hargaBeliFieldActionPerformed(evt);
+                hargaFieldActionPerformed(evt);
             }
         });
 
-        hargaJualField.addActionListener(new java.awt.event.ActionListener() {
+        biayaBelanjaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hargaJualFieldActionPerformed(evt);
+                biayaBelanjaFieldActionPerformed(evt);
             }
         });
 
@@ -170,30 +170,30 @@ public class InventoryFrame extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
         jLabel8.setText("Harga Jual");
 
-        kuantitasField.addActionListener(new java.awt.event.ActionListener() {
+        stokField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kuantitasFieldActionPerformed(evt);
+                stokFieldActionPerformed(evt);
             }
         });
 
-        buttonTambah.setBackground(new java.awt.Color(0, 153, 0));
-        buttonTambah.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        buttonTambah.setForeground(new java.awt.Color(255, 255, 255));
-        buttonTambah.setText("Tambah");
-        buttonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addButton.setBackground(new java.awt.Color(0, 153, 0));
+        addButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
+        addButton.setText("Tambah");
+        addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        buttonUbah.setBackground(new java.awt.Color(73, 94, 87));
-        buttonUbah.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        buttonUbah.setForeground(new java.awt.Color(255, 255, 255));
-        buttonUbah.setText("Ubah");
-        buttonUbah.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
-        buttonUbah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editButton.setBackground(new java.awt.Color(73, 94, 87));
+        editButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        editButton.setForeground(new java.awt.Color(255, 255, 255));
+        editButton.setText("Ubah");
+        editButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
+        editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        buttonHapus.setBackground(new java.awt.Color(204, 0, 0));
-        buttonHapus.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
-        buttonHapus.setForeground(new java.awt.Color(255, 255, 255));
-        buttonHapus.setText("Hapus");
-        buttonHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteButton.setBackground(new java.awt.Color(204, 0, 0));
+        deleteButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
+        deleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteButton.setText("Hapus");
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
 
@@ -314,7 +314,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(sortBox, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,30 +326,30 @@ public class InventoryFrame extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(idField))
+                                    .addComponent(kodeBarangField))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(produkField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kuantitasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(stokField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hargaBeliField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(hargaField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hargaJualField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(biayaBelanjaField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -363,7 +363,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sortBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonSearch)
+                            .addComponent(searchButton)
                             .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,16 +376,16 @@ public class InventoryFrame extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(produkField)
-                            .addComponent(kuantitasField)
-                            .addComponent(hargaBeliField)
-                            .addComponent(hargaJualField)
-                            .addComponent(idField))
+                            .addComponent(namaField)
+                            .addComponent(stokField)
+                            .addComponent(hargaField)
+                            .addComponent(biayaBelanjaField)
+                            .addComponent(kodeBarangField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -449,9 +449,9 @@ public class InventoryFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
 
-    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonSearchActionPerformed
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     private void sortBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBoxActionPerformed
         // TODO add your handling code here:
@@ -464,21 +464,21 @@ public class InventoryFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
-    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+    private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldActionPerformed
+    }//GEN-LAST:event_kodeBarangFieldActionPerformed
 
-    private void hargaBeliFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaBeliFieldActionPerformed
+    private void hargaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hargaBeliFieldActionPerformed
+    }//GEN-LAST:event_hargaFieldActionPerformed
 
-    private void kuantitasFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kuantitasFieldActionPerformed
+    private void stokFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stokFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kuantitasFieldActionPerformed
+    }//GEN-LAST:event_stokFieldActionPerformed
 
-    private void hargaJualFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaJualFieldActionPerformed
+    private void biayaBelanjaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biayaBelanjaFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hargaJualFieldActionPerformed
+    }//GEN-LAST:event_biayaBelanjaFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,15 +519,14 @@ public class InventoryFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonSearch;
-    private javax.swing.JButton buttonTambah;
-    private javax.swing.JButton buttonUbah;
-    private javax.swing.JTextField hargaBeliField;
-    private javax.swing.JTextField hargaJualField;
+    private javax.swing.JButton addButton;
+    private javax.swing.JTextField biayaBelanjaField;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JTextField hargaField;
     private javax.swing.JButton homeButton;
-    private javax.swing.JTextField idField;
     private javax.swing.JButton inventoryButton;
+    private javax.swing.JTable inventoryTable;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -541,14 +540,15 @@ public class InventoryFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField kuantitasField;
+    private javax.swing.JTextField kodeBarangField;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JTextField namaField;
     private javax.swing.JButton posButton;
-    private javax.swing.JTextField produkField;
     private javax.swing.JButton reportButton;
+    private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton settingsButton;
     private javax.swing.JComboBox<String> sortBox;
+    private javax.swing.JTextField stokField;
     // End of variables declaration//GEN-END:variables
 }

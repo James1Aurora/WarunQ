@@ -76,7 +76,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="sortBox" min="-2" pref="133" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="buttonSearch" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="searchButton" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="searchField" min="-2" pref="219" max="-2" attributes="0"/>
                       </Group>
@@ -90,36 +90,36 @@
                                           <Component id="jLabel4" min="-2" pref="18" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="idField" max="32767" attributes="0"/>
+                                      <Component id="kodeBarangField" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="produkField" min="-2" pref="151" max="-2" attributes="0"/>
+                                      <Component id="namaField" min="-2" pref="151" max="-2" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="kuantitasField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="stokField" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="hargaBeliField" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="hargaField" min="-2" pref="160" max="-2" attributes="0"/>
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="hargaJualField" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="biayaBelanjaField" min="-2" pref="160" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="buttonHapus" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Component id="deleteButton" min="-2" pref="84" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="buttonUbah" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Component id="editButton" min="-2" pref="84" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="buttonTambah" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="addButton" min="-2" pref="93" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="sortBox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="buttonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -154,17 +154,17 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="produkField" alignment="3" max="32767" attributes="0"/>
-                              <Component id="kuantitasField" alignment="3" max="32767" attributes="0"/>
-                              <Component id="hargaBeliField" alignment="3" max="32767" attributes="0"/>
-                              <Component id="hargaJualField" alignment="3" max="32767" attributes="0"/>
-                              <Component id="idField" max="32767" attributes="0"/>
+                              <Component id="namaField" alignment="3" max="32767" attributes="0"/>
+                              <Component id="stokField" alignment="3" max="32767" attributes="0"/>
+                              <Component id="hargaField" alignment="3" max="32767" attributes="0"/>
+                              <Component id="biayaBelanjaField" alignment="3" max="32767" attributes="0"/>
+                              <Component id="kodeBarangField" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonTambah" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="buttonUbah" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="buttonHapus" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="addButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="editButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="deleteButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -224,7 +224,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="inventoryTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="4">
@@ -282,7 +282,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonSearch">
+        <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="14" green="ce" red="f4" type="rgb"/>
@@ -297,7 +297,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="sortBox">
@@ -326,24 +326,24 @@
             <Property name="text" type="java.lang.String" value="Urutkan Sesuai"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="idField">
+        <Component class="javax.swing.JTextField" name="kodeBarangField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kodeBarangFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="produkField">
+        <Component class="javax.swing.JTextField" name="namaField">
           <Properties>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="hargaBeliField">
+        <Component class="javax.swing.JTextField" name="hargaField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hargaBeliFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hargaFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="hargaJualField">
+        <Component class="javax.swing.JTextField" name="biayaBelanjaField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hargaJualFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="biayaBelanjaFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -386,12 +386,12 @@
             <Property name="text" type="java.lang.String" value="Harga Jual"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="kuantitasField">
+        <Component class="javax.swing.JTextField" name="stokField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kuantitasFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stokFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonTambah">
+        <Component class="javax.swing.JButton" name="addButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="0" type="rgb"/>
@@ -408,7 +408,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonUbah">
+        <Component class="javax.swing.JButton" name="editButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="57" green="5e" red="49" type="rgb"/>
@@ -432,7 +432,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonHapus">
+        <Component class="javax.swing.JButton" name="deleteButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="cc" type="rgb"/>
