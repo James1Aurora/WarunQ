@@ -196,7 +196,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         } else
 
         try {
-            Connection connection = (Connection)db_koneksi.konfigurasi_koneksiDB();
+            Connection connection = (Connection)DatabaseConnection.configure();
 
             Statement statement = connection.createStatement();
 

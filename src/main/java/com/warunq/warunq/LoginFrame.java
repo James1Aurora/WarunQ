@@ -205,7 +205,7 @@ public class LoginFrame extends javax.swing.JFrame {
         String querySQL = "SELECT * FROM `akun` WHERE `nama` = '" + username + "' AND `kata_sandi` = '" + password + "'";
 
         try {
-            Connection connection = (Connection) db_koneksi.konfigurasi_koneksiDB();
+            Connection connection = (Connection) DatabaseConnection.configure();
 
             Statement statement = connection.createStatement();
 

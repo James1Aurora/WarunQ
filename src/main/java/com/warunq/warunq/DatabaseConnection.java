@@ -12,11 +12,11 @@ import java.sql.SQLException;
  *
  * @author Win10
  */
-public class db_koneksi {
+public class DatabaseConnection {
     
     public static Connection koneksi;
     
-    public static Connection konfigurasi_koneksiDB() throws SQLException {
+    public static Connection configure() throws SQLException {
         
         try {
             String user = "avnadmin";
@@ -25,15 +25,16 @@ public class db_koneksi {
 
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             koneksi = DriverManager.getConnection(url, user, password);
+            
             System.out.println("Database berhasil terhubung!");
         } catch (SQLException e) {
-            System.err.println("Database gagal terhubung!");
+            System.err.println("Database gagal terhubung: " + e);
         }
         
         return koneksi;
     }
     
     public static void main(String[] args) throws SQLException {
-        Connection penghubung = (Connection)db_koneksi.konfigurasi_koneksiDB();
+//        Connection connection = (Connection)DatabaseConnection.configure();
     }
 }
