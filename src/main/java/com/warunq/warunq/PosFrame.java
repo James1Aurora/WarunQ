@@ -78,6 +78,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jButton5.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
         jButton5.setText("Dashboard");
@@ -205,7 +207,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -213,14 +215,14 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         kameraPanel.setBackground(new java.awt.Color(0, 0, 0));
         kameraPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 2, true));
         kameraPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 210, 120));
+        jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 160));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, 20));
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, 30));
 
         jPanel1.setBackground(new java.awt.Color(73, 94, 87));
 
@@ -233,7 +235,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
+                .addGap(342, 342, 342)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -242,11 +244,11 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 40));
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 40));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 150, 20));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 30));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("RobotoMono Nerd Font", 2, 14)); // NOI18N
@@ -255,21 +257,26 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jLabel4.setText("Total");
         jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 160, 30));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 410, 30));
 
-        jLabel3.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
         jLabel3.setText("Kode Barang");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 0));
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 30, 20));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 40, 30));
 
         jButton2.setBackground(new java.awt.Color(153, 0, 0));
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 30, 20));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 40, 30));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -284,7 +291,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 220, 190));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 480, 360));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
@@ -293,7 +300,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jLabel5.setText("Tunai");
         jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 210, 30));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 280, 40));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -302,7 +309,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jLabel6.setText("Sub-Total");
         jLabel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 160, 30));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 410, 30));
 
         jButton3.setBackground(new java.awt.Color(244, 206, 20));
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -312,15 +319,27 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 50, 90));
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 50, 90));
 
         jLabel7.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 12)); // NOI18N
         jLabel7.setText("Total");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 12)); // NOI18N
         jLabel8.setText("Sub-Total");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("15:15");
+        jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 280, 30));
+
+        jLabel10.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Senin, 10/10/2024");
+        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 280, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -329,8 +348,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,6 +396,10 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,6 +508,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -493,6 +516,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
