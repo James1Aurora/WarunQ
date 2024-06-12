@@ -63,23 +63,23 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         posButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         kameraPanel = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        kodeBarangField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        kodeBarangLabel = new javax.swing.JLabel();
+        totalLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        addToCartButton = new javax.swing.JButton();
+        removeFromCartButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        cartTable = new javax.swing.JTable();
+        cashLabel = new javax.swing.JLabel();
+        subtotalLabel = new javax.swing.JLabel();
+        payButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
 
         jButton5.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
         jButton5.setText("Dashboard");
@@ -217,12 +217,12 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         kameraPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 160));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        kodeBarangField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                kodeBarangFieldActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, 30));
+        jPanel4.add(kodeBarangField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, 30));
 
         jPanel1.setBackground(new java.awt.Color(73, 94, 87));
 
@@ -246,39 +246,39 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 40));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 30));
+        kodeBarangLabel.setBackground(new java.awt.Color(255, 255, 255));
+        kodeBarangLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
+        jPanel4.add(kodeBarangLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 30));
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("RobotoMono Nerd Font", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Total");
-        jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 410, 30));
+        totalLabel.setBackground(new java.awt.Color(0, 0, 0));
+        totalLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 2, 14)); // NOI18N
+        totalLabel.setForeground(new java.awt.Color(102, 102, 102));
+        totalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalLabel.setText("Total");
+        totalLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
+        totalLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 410, 30));
 
         jLabel3.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
         jLabel3.setText("Kode Barang");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addToCartButton.setBackground(new java.awt.Color(0, 153, 0));
+        addToCartButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addToCartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addToCartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addToCartButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 40, 30));
+        jPanel4.add(addToCartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 40, 30));
 
-        jButton2.setBackground(new java.awt.Color(153, 0, 0));
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 40, 30));
+        removeFromCartButton.setBackground(new java.awt.Color(153, 0, 0));
+        removeFromCartButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        removeFromCartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(removeFromCartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 40, 30));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -289,37 +289,37 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 "Produk", "Kuantitas", "Harga"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(cartTable);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 480, 360));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Tunai");
-        jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 280, 40));
+        cashLabel.setBackground(new java.awt.Color(0, 0, 0));
+        cashLabel.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        cashLabel.setForeground(new java.awt.Color(102, 102, 102));
+        cashLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cashLabel.setText("Tunai");
+        cashLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
+        cashLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(cashLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 280, 40));
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Sub-Total");
-        jLabel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 410, 30));
+        subtotalLabel.setBackground(new java.awt.Color(0, 0, 0));
+        subtotalLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        subtotalLabel.setForeground(new java.awt.Color(102, 102, 102));
+        subtotalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        subtotalLabel.setText("Sub-Total");
+        subtotalLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
+        subtotalLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(subtotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 410, 30));
 
-        jButton3.setBackground(new java.awt.Color(244, 206, 20));
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        payButton.setBackground(new java.awt.Color(244, 206, 20));
+        payButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        payButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        payButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                payButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 50, 90));
+        jPanel4.add(payButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 50, 90));
 
         jLabel7.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 12)); // NOI18N
         jLabel7.setText("Total");
@@ -329,17 +329,17 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jLabel8.setText("Sub-Total");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("15:15");
-        jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 280, 30));
+        timeLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
+        timeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timeLabel.setText("15:15");
+        timeLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel4.add(timeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 280, 30));
 
-        jLabel10.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Senin, 10/10/2024");
-        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 280, 30));
+        dateLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
+        dateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dateLabel.setText("Senin, 10/10/2024");
+        dateLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel4.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 280, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -404,17 +404,17 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_kodeBarangFieldActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_payButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addToCartButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,7 +502,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             }
             
             if (result != null) {
-                jTextField1.setText(result.getText());
+                kodeBarangField.setText(result.getText());
             }
                     
         } while (true);
@@ -516,35 +516,35 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addToCartButton;
+    private javax.swing.JTable cartTable;
+    private javax.swing.JLabel cashLabel;
+    private javax.swing.JLabel dateLabel;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton inventoryButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel kameraPanel;
+    private javax.swing.JTextField kodeBarangField;
+    private javax.swing.JLabel kodeBarangLabel;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JButton payButton;
     private javax.swing.JButton posButton;
+    private javax.swing.JButton removeFromCartButton;
     private javax.swing.JButton reportButton;
     private javax.swing.JButton settingsButton;
+    private javax.swing.JLabel subtotalLabel;
+    private javax.swing.JLabel timeLabel;
+    private javax.swing.JLabel totalLabel;
     private javax.swing.JLabel warunqLabel;
     // End of variables declaration//GEN-END:variables
 }
