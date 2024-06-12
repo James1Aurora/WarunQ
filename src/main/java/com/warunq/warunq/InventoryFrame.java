@@ -386,9 +386,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                             .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -413,18 +411,30 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
+        HomeFrame homeFrame = new HomeFrame();
+        homeFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         // TODO add your handling code here:
+        InventoryFrame inventoryFrame = new InventoryFrame();
+        inventoryFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
         // TODO add your handling code here:
+        ReportFrame reportFrame = new ReportFrame();
+        reportFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_reportButtonActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
+        SettingsFrame settingsFrame = new SettingsFrame();
+        settingsFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -449,6 +459,9 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
+        PosFrame posFrame = new PosFrame();
+        posFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
