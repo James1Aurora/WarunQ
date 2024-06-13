@@ -4,17 +4,37 @@
  */
 package com.warunq.warunq;
 
+import java.sql.Connection;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  *
  * @author Win10
  */
 public class ReceiptFrame extends javax.swing.JFrame {
 
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("id-ID"));
+    
     /**
      * Creates new form inventory
      */
-    public ReceiptFrame() {
+    public ReceiptFrame(Double cash, Double total, int orderId) {
         initComponents();
+        
+        String cashRupiah = formatRupiah.format(cash);
+        String totalRupiah = formatRupiah.format(total);
+        
+        cashLabel.setText(cashRupiah);
+        totalLabel.setText(totalRupiah);
+        
+        double change = cash - total;
+
+        changeLabel.setText(formatRupiah.format(change));
+        
+        Connection connection = (Connection) DatabaseConnection.configure();
+        
+        
     }
 
     /**
@@ -34,11 +54,11 @@ public class ReceiptFrame extends javax.swing.JFrame {
         resiTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        cashLabel = new javax.swing.JLabel();
+        totalLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        changeLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -98,11 +118,13 @@ public class ReceiptFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 18)); // NOI18N
         jLabel2.setText("Kembalian:");
 
-        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+        cashLabel.setBackground(new java.awt.Color(153, 153, 153));
+        cashLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 18)); // NOI18N
+        cashLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
 
-        jLabel4.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+        totalLabel.setBackground(new java.awt.Color(153, 153, 153));
+        totalLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 18)); // NOI18N
+        totalLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -110,8 +132,9 @@ public class ReceiptFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 18)); // NOI18N
         jLabel5.setText("Total    :");
 
-        jLabel6.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+        changeLabel.setBackground(new java.awt.Color(153, 153, 153));
+        changeLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 18)); // NOI18N
+        changeLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
 
         jButton1.setFont(new java.awt.Font("RobotoMono Nerd Font", 2, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(244, 206, 20));
@@ -152,17 +175,17 @@ public class ReceiptFrame extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(changeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                                    .addComponent(totalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addContainerGap())
         );
@@ -180,17 +203,17 @@ public class ReceiptFrame extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(changeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,20 +314,20 @@ public class ReceiptFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cashLabel;
+    private javax.swing.JLabel changeLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel laporanFrameLabel;
     private javax.swing.JTable resiTable;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
