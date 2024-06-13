@@ -56,3 +56,9 @@ CREATE TABLE `pesanan` (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
 );
+
+CREATE VIEW `laporan` AS
+    `t.tanggalwaktu`, `dt.id_transaksi`, `dt.kode_barang` AS `id`, `n.nama` AS `nama_barang`,
+    SUM(`dt.kuantitas_barang`) AS `kuantitas`, `b.harga` AS `nilai_satuan`, SUM(`dt.subtotal`) AS total
+    FROM `detail_transaksi` AS `dt` INNER JOIN `transaksi` AS `t` ON `dt.id_transaksi` = `t.id`
+    INNER JOIN `barang` AS `b` ON `dt.kode_barang` = `b.kode` GROUP BY `dt.id_transaksi`, `dt.kode_barang`;
