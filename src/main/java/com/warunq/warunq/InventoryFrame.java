@@ -550,28 +550,28 @@ public class InventoryFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_biayaBelanjaFieldActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
-            // Tangkap variabel inputan dari GUI
-        String kode_barang = kodeBarangField.getText();
-        String nama_produk = namaField.getText();
-        String kuantitas = stokField.getText();
-        String harga_jual = hargaField.getText();
-        String harga_beli = biayaBelanjaField.getText();
-    
-    try {
-        // Konversi string tenggat_pesanan ke java.sql.Date
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
-//        java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
+       // TODO add your handling code here:
+    // Tangkap variabel inputan dari GUI
+    String kode_barang = kodeBarangField.getText();
+    String nama_produk = namaField.getText();
+    String kuantitas = stokField.getText();
+    String harga_jual = hargaField.getText();
+    String harga_beli = biayaBelanjaField.getText();
 
-//       // Dapatkan harga barang
-//        double harga_barang = getHargaBarang(kode_barang);
-        
-        // Hitung subtotal
+    try {
+        // Konversi string tenggat_pesanan ke java.sql.Date (jika diperlukan)
+        // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        // java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
+        // java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
+
+        // Dapatkan harga barang (jika diperlukan)
+        // double harga_barang = getHargaBarang(kode_barang);
+
+        // Hitung subtotal (jika diperlukan)
         int stok = Integer.parseInt(kuantitas);
         Double harga = Double.parseDouble(harga_jual);
         Double modal = Double.parseDouble(harga_beli);
-//        double subtotal = harga_barang * kuantitas;
+        // double subtotal = harga_barang * kuantitas;
 
         // Query untuk memasukkan data
         String query_data = "INSERT INTO barang (kode, nama, harga, stok, biaya_belanja) VALUES (?, ?, ?, ?, ?)";
@@ -581,21 +581,19 @@ public class InventoryFrame extends javax.swing.JFrame {
         perintah_tambah.setString(2, nama_produk);
         perintah_tambah.setDouble(3, harga);
         perintah_tambah.setInt(4, stok);
-        perintah_tambah.setDouble(6, modal);
+        perintah_tambah.setDouble(5, modal);
 
         // Eksekusi perintah SQL
         perintah_tambah.executeUpdate();
-        
+
         JOptionPane.showMessageDialog(null, "Data berhasil disimpan!");
         baca_data();
         layar_bersih();
-        
+
     } catch (Exception e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
     }
-        
-        
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
