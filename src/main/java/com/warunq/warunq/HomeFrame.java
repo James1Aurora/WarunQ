@@ -122,7 +122,7 @@ public class HomeFrame extends javax.swing.JFrame {
         });
 
         settingsButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        settingsButton.setText("Pengaturan");
+        settingsButton.setText("Pesanan");
         settingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,8 +229,8 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-        SettingsFrame settingsFrame = new SettingsFrame();
-        settingsFrame.setVisible(true);
+        PreOrderFrame PreOrderFrame = new PreOrderFrame();
+        PreOrderFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_settingsButtonActionPerformed
 
