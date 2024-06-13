@@ -14,6 +14,7 @@ public class HomeFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form inventory
+     * Content not found
      */
     public HomeFrame() {
         initComponents();
