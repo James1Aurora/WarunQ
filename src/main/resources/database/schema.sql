@@ -1,3 +1,4 @@
+-- Active: 1718285019228@@mysql-warunq-warunq.d.aivencloud.com@28737@db_warunq
 -- SQLBook: Code
 -- mysql -h mysql-warunq-warunq.d.aivencloud.com -P 28737 -u avnadmin -p "AVNS_dHcesTccniEeErK2qOH" --ssl-ca=c:\Users\hp\Downloads\ca.pem  defaultdb
 
