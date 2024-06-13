@@ -503,8 +503,8 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-        SettingsFrame settingsFrame = new SettingsFrame();
-        settingsFrame.setVisible(true);
+        PreOrderFrame PreOrderFrame = new PreOrderFrame();
+        PreOrderFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_settingsButtonActionPerformed
 
@@ -631,7 +631,8 @@ public class InventoryFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:// Ambil baris yang dipilih di tabel
+        // TODO add your handling code here:
+    // Ambil baris yang dipilih di tabel
     int baris = inventoryTable.getSelectedRow();
     if (baris != -1) {
         // Ambil ID dari baris yang dipilih
@@ -644,27 +645,27 @@ public class InventoryFrame extends javax.swing.JFrame {
         String harga_beli = biayaBelanjaField.getText();
         
         try {
-            // Konversi string tenggat_pesanan ke java.sql.Date
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//            java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
-//            java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
+            // Konversi string tenggat_pesanan ke java.sql.Date (jika diperlukan)
+            // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            // java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
+            // java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
 
-            // Dapatkan harga barang
-//            double harga_barang = getHargaBarang(kode);
-//            
+            // Dapatkan harga barang (jika diperlukan)
+            // double harga_barang = getHargaBarang(kode);
+            
             int stok = Integer.parseInt(kuantitas);
             Double harga = Double.parseDouble(harga_jual);
             Double modal = Double.parseDouble(harga_beli);
 
             // Query untuk memperbarui data berdasarkan ID
-            String query_data = "UPDATE barang SET kode = ?, nama = ?, harga = ?, stok = ?, biaya_belanja = ? WHERE kode = ?";
+            String query_data = "UPDATE barang SET nama = ?, harga = ?, stok = ?, biaya_belanja = ? WHERE kode = ?";
             Connection connection = (Connection) DatabaseConnection.configure();
             PreparedStatement perintah_ubah = connection.prepareStatement(query_data);
-            perintah_ubah.setString(1, kode);
-            perintah_ubah.setString(2, nama_produk);
-            perintah_ubah.setDouble(3, harga);
-            perintah_ubah.setInt(4, stok);
-            perintah_ubah.setDouble(5, modal);
+            perintah_ubah.setString(1, nama_produk);
+            perintah_ubah.setDouble(2, harga);
+            perintah_ubah.setInt(3, stok);
+            perintah_ubah.setDouble(4, modal);
+            perintah_ubah.setString(5, kode);
             // Eksekusi perintah SQL
             perintah_ubah.executeUpdate();
             
