@@ -425,11 +425,13 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
         // TODO add your handling code here:
+        playSound("audio/cash_register_x.wav");
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
         playSound("audio/Barcode-scanner-beep-sound.wav");
+        kodeBarangField.setText("");
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
     /**
