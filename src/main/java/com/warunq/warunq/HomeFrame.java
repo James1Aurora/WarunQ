@@ -231,7 +231,7 @@ public class HomeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         PosFrame posFrame = new PosFrame();
         posFrame.setVisible(true);
-        this.setVisible(false);
+//        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
     /**
