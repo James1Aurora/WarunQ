@@ -509,6 +509,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
                          new ReceiptFrame(cashDouble, totalDouble, lastInsertedId).setVisible(true);
                          dispose();
+                         webcam.close();
                      } else {
                         System.out.println("Insert gagal.");
                         JOptionPane.showMessageDialog(null, "Insert gagal.");
