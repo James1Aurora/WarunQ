@@ -16,12 +16,17 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -39,6 +44,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     public PosFrame() {
         initComponents();
         initWebcam();
+        initRealTimeClock();
     }
 
     /**
@@ -401,7 +407,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         // TODO add your handling code here:
         PosFrame posFrame = new PosFrame();
         posFrame.setVisible(true);
-        this.setVisible(false);
+//        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed
@@ -472,6 +478,11 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         executor.execute(this);
     }
     
+    private void initRealTimeClock() {
+        Timer timer = new Timer(1000, event -> updateDateTime());
+        timer.start();
+    }
+    
     @Override
     public void run() {
         do {            
@@ -513,6 +524,16 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         Thread t = new Thread(r, "My Thread");
         t.setDaemon(true);
         return t;
+    }
+    
+    private void  updateDateTime() {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM YYYY", Locale.forLanguageTag("id-ID"));
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.forLanguageTag("id-ID"));
+        
+        LocalDateTime now = LocalDateTime.now();
+        
+        dateLabel.setText(now.format(dateFormatter));
+        timeLabel.setText(now.format(timeFormatter));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
