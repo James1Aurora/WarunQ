@@ -33,7 +33,7 @@ CREATE TABLE `barang` (
 CREATE TABLE `transaksi` (
     `id` INT UNSIGNED AUTO_INCREMENT,
     `tanggalwaktu` DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
-    `total` DECIMAL(15, 2) NULL,
+    `total` DECIMAL(15, 2) NULL DEFAULT 0.00,
     PRIMARY KEY (`id`)
 );
 

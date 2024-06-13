@@ -39,9 +39,9 @@ INSERT INTO `barang` (`kode`, `nama`, `harga`, `stok`, `tanggal_belanja`, `biaya
 
 -- Insert dummy data into `transaksi` table
 INSERT INTO `transaksi` (`tanggalwaktu`, `total`) VALUES 
-('2024-06-10 08:30:00', 150000.00),
-('2024-06-10 09:45:00', 75000.00),
-('2024-06-10 10:15:00', 45000.00);
+('2024-06-10 08:30:00', 0.00),
+('2024-06-10 09:45:00', 0.00),
+('2024-06-10 10:15:00', 0.00);
 
 -- Insert dummy data into `detail_transaksi` table
 INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang`, `subtotal`) VALUES 
@@ -51,10 +51,18 @@ INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang
 (3, 'BRG004', 2, 40000.00),
 (3, 'BRG005', 5, 45000.00);
 
--- Insert dummy data into `pesanan` table
-INSERT INTO `pesanan` (`kode_barang`, `nama_pemesan`, `kuantitas_barang`, `tenggat_pesanan`, `subtotal`) VALUES 
-('BRG001', 'Andi', 10, '2024-06-11', 500000.00),
-('BRG002', 'Budi', 20, '2024-06-12', 240000.00),
-('BRG003', 'Citra', 15, '2024-06-13', 375000.00),
-('BRG004', 'Dewi', 50, '2024-06-14', 1000000.00),
-('BRG005', 'Eko', 30, '2024-06-15', 270000.00);
+-- Setelah data `detail_transaksi` dimasukkan, trigger `hitung_total_transaksi` akan menghitung ulang total transaksi dalam `transaksi` table.
+
+
+INSERT INTO `transaksi` (`tanggalwaktu`) VALUES 
+('2024-06-10 08:30:00'),
+('2024-06-10 09:45:00'),
+('2024-06-10 10:15:00');
+
+-- Insert dummy data into `detail_transaksi` table without specifying `subtotal`
+INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang`) VALUES 
+(10, 'BRG001', 2),
+(10, 'BRG002', 5),
+(11, 'BRG003', 3),
+(12, 'BRG004', 2),
+(12, 'BRG005', 5);
