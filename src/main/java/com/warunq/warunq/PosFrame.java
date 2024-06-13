@@ -20,6 +20,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -36,6 +40,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -300,15 +305,17 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Produk", "Kuantitas", "Harga"
+                "Kode", "Barang", "Kuantitas", "Harga"
             }
         ));
+        cartTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cartTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(cartTable);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 480, 360));
@@ -430,19 +437,119 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel cartDefaultTableModel = (DefaultTableModel) cartTable.getModel();
+        String queryTransaksi = "INSERT INTO `transaksi` VALUES ();";
+        
+        try {
+            Connection connection = (Connection) DatabaseConnection.configure();
+            
+            PreparedStatement statementTransaksi = connection.prepareStatement(queryTransaksi, PreparedStatement.RETURN_GENERATED_KEYS);
+            int rowsAffectedTransaksi = statementTransaksi.executeUpdate();
+            
+            ResultSet resultSet = statementTransaksi.getGeneratedKeys();
+            
+            if (resultSet.next()) {
+                int lastInsertedId = resultSet.getInt(1);
+                                
+                for (int row = 0; row < cartDefaultTableModel.getRowCount(); row++) {
+                    String queryDetailTransaksi = "INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang`) VALUES (?, ?, ?);";
+                    
+                    PreparedStatement statementDetailTransaksi = connection.prepareStatement(queryDetailTransaksi);
+                  
+                    statementDetailTransaksi.setInt(1, lastInsertedId);
+                    statementDetailTransaksi.setString(2, cartDefaultTableModel.getValueAt(row, 0).toString());
+                    statementDetailTransaksi.setInt(3, Integer.parseInt(cartDefaultTableModel.getValueAt(row, 2).toString()));
+                    
+                    int rowsAffectedDetailTransaksi = statementDetailTransaksi.executeUpdate();
+                    
+                    if (rowsAffectedDetailTransaksi > 0) {
+                        System.out.println("Insert berhasil. " + rowsAffectedDetailTransaksi + " baris telah dimasukkan.");
+
+                        JOptionPane.showMessageDialog(null, "hi");
+                         new ReceiptFrame().setVisible(true);
+                         dispose();
+                     } else {
+                        System.out.println("Insert gagal.");
+                        JOptionPane.showMessageDialog(null, "Insert gagal.");
+                    }
+                }               
+            } else {
+                System.out.println("Gagal mendapatkan ID transaksi.");
+                JOptionPane.showMessageDialog(null, "Gagal mendapatkan ID transaksi.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan: " + e.getMessage());
+        }
+        
         playSound("audio/cash_register_x.wav");
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel cartDefaultTableModel = (DefaultTableModel) cartTable.getModel();
+        String kodeBarang = kodeBarangField.getText();
+        String query = "SELECT `kode`, `nama`, `harga` FROM `barang` WHERE `kode` = '" + kodeBarang + "';";
+        
+        try {
+            Connection connection = (Connection) DatabaseConnection.configure();
+            
+            Statement statement = connection.createStatement();
+            
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) { 
+                String kode = resultSet.getString("kode");
+                String nama = resultSet.getString("nama");
+                String harga = resultSet.getString("harga");
+                boolean found = false;
+                
+                for (int i = 0; i < cartDefaultTableModel.getRowCount(); i++) {
+                    if (nama.equals(cartDefaultTableModel.getValueAt(i, 1))) {
+                        int currentQuantity = (int) cartDefaultTableModel.getValueAt(i, 2);
+                        cartDefaultTableModel.setValueAt(currentQuantity + 1, i, 2);
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    cartDefaultTableModel.addRow(new Object[]{kode, nama, 1, harga});
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         playSound("audio/coin2.wav");
-//        kodeBarangField.setText("");
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
     private void removeFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromCartButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel cartDefaultTableModel = (DefaultTableModel) cartTable.getModel();
+        String kode = kodeBarangLabel.getText();
+        
+        for (int i = 0; i < cartDefaultTableModel.getRowCount(); i++) {
+            if (cartDefaultTableModel.getValueAt(i, 0).equals(kode)) {
+                cartDefaultTableModel.removeRow(i);
+                break; // Keluar dari loop setelah baris ditemukan dan dihapus
+            }
+        }
+        
         playSound("audio/Voicy_Roblox Delete.wav");
     }//GEN-LAST:event_removeFromCartButtonActionPerformed
+
+    private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
+        // TODO add your handling code here:
+        int row = cartTable.rowAtPoint(evt.getPoint());
+        
+        String kode = cartTable.getValueAt(row, 0).toString();
+        String barang = cartTable.getValueAt(row, 1).toString();
+        String kuantitas = cartTable.getValueAt(row, 2).toString();
+        String harga = cartTable.getValueAt(row, 3).toString();
+        
+        kodeBarangLabel.setText(kode);
+    }//GEN-LAST:event_cartTableMouseClicked
 
     /**
      * @param args the command line arguments
