@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.NumberFormat;
 import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +20,9 @@ import java.util.Locale;
 public class ReceiptFrame extends javax.swing.JFrame {
 
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("id-ID"));
+    static Double cashGlobal = 0.0;
+    static Double totalGlobal = 0.0;
+    static int transactionIdGlobal = 0;
     
     /**
      * Creates new form inventory
@@ -25,6 +30,11 @@ public class ReceiptFrame extends javax.swing.JFrame {
     public ReceiptFrame(Double cash, Double total, int transactionId) {
         initComponents();
         
+        cashGlobal = cash;
+        totalGlobal = total;
+        transactionIdGlobal = transactionId;
+        
+        DefaultTableModel receiptDefaultTableModel = (DefaultTableModel) receiptTable.getModel();
         String query = "SELECT * FROM `resi` WHERE `id_transaksi` = '" + transactionId + "';";
         String cashRupiah = formatRupiah.format(cash);
         String totalRupiah = formatRupiah.format(total);
@@ -36,21 +46,27 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
         changeLabel.setText(formatRupiah.format(change));
         
-//        try {
-//            Connection connection = (Connection) DatabaseConnection.configure();
-//            
-//            Statement statement = connection.createStatement();
-//            
-//            ResultSet resultSet = statement.executeQuery(query);
-//            
-//            int i = 1;
-//            while (resultSet.next()) {                
-//                i++,
-//                
-//            }
-//            
-//        } catch (SQLException e) {
-//        }
+        try {
+            Connection connection = (Connection) DatabaseConnection.configure();
+            
+            Statement statement = connection.createStatement();
+            
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            int i = 1;
+            while (resultSet.next()) {
+                receiptDefaultTableModel.addRow(new Object[]{
+                    i++,
+                    resultSet.getString("nama"),
+                    resultSet.getString("kuantitas_barang"),
+                    resultSet.getString("harga"),
+                    resultSet.getString("subtotal")
+                });
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Terdapat kesalahan: " + e);
+        }
     }
 
     /**
@@ -67,7 +83,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         laporanFrameLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resiTable = new javax.swing.JTable();
+        receiptTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cashLabel = new javax.swing.JLabel();
@@ -115,7 +131,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        resiTable.setModel(new javax.swing.table.DefaultTableModel(
+        receiptTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -126,7 +142,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
                 "No.", "Nama Barang", "Kuantitas", "Harga Barang", "Subtotal"
             }
         ));
-        jScrollPane1.setViewportView(resiTable);
+        jScrollPane1.setViewportView(receiptTable);
 
         jLabel1.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 18)); // NOI18N
         jLabel1.setText("Tunai    :");
@@ -324,7 +340,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReceiptFrame(0.0, 0.0, 0).setVisible(true);
+                new ReceiptFrame(cashGlobal, totalGlobal, transactionIdGlobal).setVisible(true);
             }
         });
     }
@@ -343,7 +359,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel laporanFrameLabel;
-    private javax.swing.JTable resiTable;
+    private javax.swing.JTable receiptTable;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
