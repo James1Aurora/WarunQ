@@ -3,6 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.warunq.warunq;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
@@ -15,8 +25,51 @@ public class InventoryFrame extends javax.swing.JFrame {
      */
     public InventoryFrame() {
         initComponents();
+        baca_data();        
+    }
+    
+    private void baca_data(){
+        DefaultTableModel data_inventory = new DefaultTableModel();
+        data_inventory.addColumn("Kode Barang");
+        data_inventory.addColumn("Nama Produk");
+        data_inventory.addColumn("Tanggal Belanja");
+        data_inventory.addColumn("Kuantitas");
+        data_inventory.addColumn("Harga Beli");
+        data_inventory.addColumn("Harga Jual");
+      
+     try{
+        String query_data = "SELECT * FROM barang";
+        Connection connection = (Connection) DatabaseConnection.configure();
+        Statement statement_sql = connection.createStatement();
+        ResultSet hasil_SQL = statement_sql.executeQuery(query_data);
+
+        while (hasil_SQL.next()) {
+            data_inventory.addRow(new Object[]{
+                hasil_SQL.getString("kode"),
+                hasil_SQL.getString("nama"),
+                hasil_SQL.getDate("tanggal_belanja"),
+                hasil_SQL.getInt("stok"),
+                hasil_SQL.getDouble("biaya_belanja"),
+                hasil_SQL.getDouble("harga")
+            });
+        }
+        inventoryTable.setModel(data_inventory);
+
+     }catch (Exception e){
+         e.printStackTrace();
+         JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+     }
         
     }
+    
+    public void layar_bersih(){
+        namaField.setText("");
+        kodeBarangField.setText("");
+        stokField.setText("");
+        hargaField.setText("");
+        biayaBelanjaField.setText("");
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,7 +157,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nama Produk", "Tanggal Belanja", "Kuantitas", "Harga Beli", "Harga Jual"
+                "Kode Barang", "Nama Produk", "Tanggal Belanja", "Kuantitas", "Harga Beli", "Harga Jual"
             }
         ));
         jScrollPane1.setViewportView(inventoryTable);
@@ -157,7 +210,7 @@ public class InventoryFrame extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 14)); // NOI18N
-        jLabel4.setText("Id");
+        jLabel4.setText("Kode Barang");
 
         jLabel5.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
         jLabel5.setText("Nama Produk");
@@ -182,6 +235,11 @@ public class InventoryFrame extends javax.swing.JFrame {
         addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Tambah");
         addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setBackground(new java.awt.Color(73, 94, 87));
         editButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
@@ -189,12 +247,22 @@ public class InventoryFrame extends javax.swing.JFrame {
         editButton.setText("Ubah");
         editButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
         editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         deleteButton.setBackground(new java.awt.Color(204, 0, 0));
         deleteButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
         deleteButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteButton.setText("Hapus");
         deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
 
@@ -323,10 +391,10 @@ public class InventoryFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(kodeBarangField, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(kodeBarangField, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,6 +548,162 @@ public class InventoryFrame extends javax.swing.JFrame {
     private void biayaBelanjaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biayaBelanjaFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biayaBelanjaFieldActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+            // Tangkap variabel inputan dari GUI
+        String kode_barang = kodeBarangField.getText();
+        String nama_produk = namaField.getText();
+        String kuantitas = stokField.getText();
+        String harga_jual = hargaField.getText();
+        String harga_beli = biayaBelanjaField.getText();
+    
+    try {
+        // Konversi string tenggat_pesanan ke java.sql.Date
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
+//        java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
+
+//       // Dapatkan harga barang
+//        double harga_barang = getHargaBarang(kode_barang);
+        
+        // Hitung subtotal
+        int stok = Integer.parseInt(kuantitas);
+        Double harga = Double.parseDouble(harga_jual);
+        Double modal = Double.parseDouble(harga_beli);
+//        double subtotal = harga_barang * kuantitas;
+
+        // Query untuk memasukkan data
+        String query_data = "INSERT INTO barang (kode, nama, harga, stok, biaya_belanja) VALUES (?, ?, ?, ?, ?)";
+        Connection connection = (Connection) DatabaseConnection.configure();
+        PreparedStatement perintah_tambah = connection.prepareStatement(query_data);
+        perintah_tambah.setString(1, kode_barang);
+        perintah_tambah.setString(2, nama_produk);
+        perintah_tambah.setDouble(3, harga);
+        perintah_tambah.setInt(4, stok);
+        perintah_tambah.setDouble(6, modal);
+
+        // Eksekusi perintah SQL
+        perintah_tambah.executeUpdate();
+        
+        JOptionPane.showMessageDialog(null, "Data berhasil disimpan!");
+        baca_data();
+        layar_bersih();
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+        
+        
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:    // Ambil baris yang dipilih di tabel
+    int baris = inventoryTable.getSelectedRow();
+    if (baris != -1) {
+        // Ambil ID dari baris yang dipilih
+        String kode = inventoryTable.getValueAt(baris, 0).toString();
+        
+        try {
+            // Query untuk menghapus data berdasarkan ID
+            String query_hapus = "DELETE FROM pesanan WHERE kode = ?";
+            Connection connection = (Connection) DatabaseConnection.configure();
+            PreparedStatement perintah_hapus = connection.prepareStatement(query_hapus);
+            perintah_hapus.setString(1,kode);
+
+            // Eksekusi perintah SQL
+            perintah_hapus.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+            baca_data();
+            layar_bersih();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Pilih baris yang ingin dihapus terlebih dahulu!");
+    }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:// Ambil baris yang dipilih di tabel
+    int baris = inventoryTable.getSelectedRow();
+    if (baris != -1) {
+        // Ambil ID dari baris yang dipilih
+        String kode = inventoryTable.getValueAt(baris, 0).toString();
+        
+        // Tangkap variabel inputan dari GUI
+        String nama_produk = namaField.getText();
+        String kuantitas = stokField.getText();
+        String harga_jual = hargaField.getText();
+        String harga_beli = biayaBelanjaField.getText();
+        
+        try {
+            // Konversi string tenggat_pesanan ke java.sql.Date
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            java.util.Date dateTenggat = sdf.parse(tenggat_pesanan);
+//            java.sql.Date sqlDateTenggat = new java.sql.Date(dateTenggat.getTime());
+
+            // Dapatkan harga barang
+//            double harga_barang = getHargaBarang(kode);
+//            
+            int stok = Integer.parseInt(kuantitas);
+            Double harga = Double.parseDouble(harga_jual);
+            Double modal = Double.parseDouble(harga_beli);
+
+            // Query untuk memperbarui data berdasarkan ID
+            String query_data = "UPDATE barang SET kode = ?, nama = ?, harga = ?, stok = ?, biaya_belanja = ? WHERE kode = ?";
+            Connection connection = (Connection) DatabaseConnection.configure();
+            PreparedStatement perintah_ubah = connection.prepareStatement(query_data);
+            perintah_ubah.setString(1, kode);
+            perintah_ubah.setString(2, nama_produk);
+            perintah_ubah.setDouble(3, harga);
+            perintah_ubah.setInt(4, stok);
+            perintah_ubah.setDouble(6, modal);
+            // Eksekusi perintah SQL
+            perintah_ubah.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Data berhasil diubah!");
+            baca_data();
+            layar_bersih();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Pilih baris yang ingin diubah terlebih dahulu!");
+    }   
+    }//GEN-LAST:event_editButtonActionPerformed
+
+     private void inventoryTableMouseClicked(java.awt.event.MouseEvent evt) {                                          
+        
+        int baris = inventoryTable.rowAtPoint(evt.getPoint());
+
+        // Ambil data dari baris yang diklik dan set ke text field
+        String kode_barang = inventoryTable.getValueAt(baris, 0).toString();
+        String nama_produk = inventoryTable.getValueAt(baris, 1).toString();
+        Date tanggal_belanja = (Date) inventoryTable.getValueAt(baris, 2);
+        String kuantitas = inventoryTable.getValueAt(baris, 3).toString();
+        String harga_beli = inventoryTable.getValueAt(baris, 5).toString();
+        String harga_jual = inventoryTable.getValueAt(baris, 5).toString();
+        // Format tanggal jika diperlukan
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tenggatStr = sdf.format(tanggal_belanja);
+
+        // Set text field
+        kodeBarangField.setText(kode_barang);
+        namaField.setText(nama_produk);
+        stokField.setText(kuantitas);
+        hargaField.setText(harga_jual);
+        biayaBelanjaField.setText(harga_beli); 
+    }              
+
+                                          
+
 
     /**
      * @param args the command line arguments
