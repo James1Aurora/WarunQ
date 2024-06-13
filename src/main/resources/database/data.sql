@@ -1,5 +1,5 @@
 -- SQLBook: Code
--- Active: 1718254436114@@mysql-warunq-warunq.d.aivencloud.com@28737@db_warunq
+-- Active: 1718285019228@@mysql-warunq-warunq.d.aivencloud.com@28737@db_warunq
 INSERT INTO `akun` (`nama`, `kata_sandi`)
 VALUES ('admin', 'admin');
 
@@ -19,5 +19,42 @@ VALUES  ('08968617072', 'Indomie Goreng', 3000.00, 80, 2700.50, '2024-06-12'),
     ('8991002105560', 'Kapal Api - Special Mix', 1500.00, 60, 1250.00,' 2024-06-04'),
     ('8998866613767', 'Super Sol - 19mL', 1500.00, 15, 1200.00, '2024-06-11'),
     ('89940416010929', 'Tisu Basah', 10000.00, 9, 9300.00, '2024-06-11'),
-    ('089686043204', 'Indomie Goreng Aceh', 3500.00, 80, 3100.00, '2024-05-29')
-    ('8993176110074','Minyak Kayu Putih cap Lang', 26000.00,12,24500.00,'2024-05-04');
+    ('089686043204', 'Indomie Goreng Aceh', 3500.00, 80, 3100.00, '2024-05-29'),
+    ('8993176110074', 'Minyak Kayu Putih cap Lang', 26000.00, 12, 24500.00, '2024-05-04');
+
+-- Insert dummy data into `akun` table
+INSERT INTO `akun` (`nama`, `kata_sandi`) VALUES 
+('admin', 'adminpassword'),
+('kasir1', 'kasirpassword1'),
+('kasir2', 'kasirpassword2');
+
+-- Insert dummy data into `barang` table
+INSERT INTO `barang` (`kode`, `nama`, `harga`, `stok`, `tanggal_belanja`, `biaya_belanja`) VALUES 
+('BRG001', 'Beras', 50000.00, 100, '2024-06-01', 45000.00),
+('BRG002', 'Gula', 12000.00, 50, '2024-06-02', 10000.00),
+('BRG003', 'Minyak Goreng', 25000.00, 70, '2024-06-03', 22000.00),
+('BRG004', 'Telur', 20000.00, 200, '2024-06-04', 18000.00),
+('BRG005', 'Tepung Terigu', 9000.00, 80, '2024-06-05', 8500.00),
+('BRG006', 'Mie Instan', 3000.00, 500, '2024-06-06', 2800.00);
+
+-- Insert dummy data into `transaksi` table
+INSERT INTO `transaksi` (`tanggalwaktu`, `total`) VALUES 
+('2024-06-10 08:30:00', 150000.00),
+('2024-06-10 09:45:00', 75000.00),
+('2024-06-10 10:15:00', 45000.00);
+
+-- Insert dummy data into `detail_transaksi` table
+INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang`, `subtotal`) VALUES 
+(1, 'BRG001', 2, 100000.00),
+(1, 'BRG002', 5, 60000.00),
+(2, 'BRG003', 3, 75000.00),
+(3, 'BRG004', 2, 40000.00),
+(3, 'BRG005', 5, 45000.00);
+
+-- Insert dummy data into `pesanan` table
+INSERT INTO `pesanan` (`kode_barang`, `nama_pemesan`, `kuantitas_barang`, `tenggat_pesanan`, `subtotal`) VALUES 
+('BRG001', 'Andi', 10, '2024-06-11', 500000.00),
+('BRG002', 'Budi', 20, '2024-06-12', 240000.00),
+('BRG003', 'Citra', 15, '2024-06-13', 375000.00),
+('BRG004', 'Dewi', 50, '2024-06-14', 1000000.00),
+('BRG005', 'Eko', 30, '2024-06-15', 270000.00);

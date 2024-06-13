@@ -41,7 +41,7 @@ CREATE TABLE `detail_transaksi` (
     `id_transaksi` INT UNSIGNED AUTO_INCREMENT,
     `kode_barang` VARCHAR(255),
     `kuantitas_barang` INT UNSIGNED NOT NULL DEFAULT 0,
-    `subtotal` DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
+    `subtotal` DECIMAL(15, 2) NULL DEFAULT 0.00,
     PRIMARY KEY (`id_transaksi`, `kode_barang`),
     FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi`(`id`),
     FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
