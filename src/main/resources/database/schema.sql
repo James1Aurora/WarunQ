@@ -57,9 +57,7 @@ CREATE TABLE `pesanan` (
     FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
 );
 
-
-
-DETERMINISTIC //
+DELIMITER //
 CREATE TRIGGER `hitung_stok`
 AFTER INSERT
 ON `detail_transaksi`
@@ -68,7 +66,39 @@ BEGIN
     UPDATE `barang`
     SET `stok` = `stok` - NEW.`kuantitas_barang`;
 END//
-DETERMINISTIC ;
+
+CREATE TRIGGER `hitung_subtotal_detail_transaksi`
+BEFORE INSERT
+ON `detail_transaksi`
+FOR EACH ROW
+BEGIN
+    DECLARE `harga_barang` DECIMAL(15, 2);
+
+    SELECT `harga` INTO `harga_barang`
+    FROM `barang`
+    WHERE `kode` = NEW.`kode_barang`;
+
+    SET NEW.`subtotal` = NEW.`kuantitas_barang` * `harga_barang`;
+END//
+
+CREATE TRIGGER `hitung_total_transaksi`
+AFTER INSERT
+ON `detail_transaksi`
+FOR EACH ROW
+BEGIN
+    UPDATE `transaksi`
+    SET `total` = `total` + NEW.`subtotal`
+    WHERE `id` = NEW.`id_transaksi`;
+END//
+
+CREATE TRIGGER `hitung_subtotal_pesanan`
+BEFORE INSERT
+ON `pesanan`
+FOR EACH ROW
+BEGIN
+    SET NEW.`subtotal` = NEW.`kuantitas_barang` * (SELECT `harga` FROM `barang` WHERE `kode` = NEW.`kode_barang`);
+END//
+DELIMITER ;
 
 CREATE VIEW `resi` AS
 SELECT `detail_transaksi`.`id_transaksi`,
