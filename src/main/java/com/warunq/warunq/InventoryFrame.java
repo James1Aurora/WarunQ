@@ -160,6 +160,11 @@ public class InventoryFrame extends javax.swing.JFrame {
                 "Kode Barang", "Nama Produk", "Tanggal Belanja", "Kuantitas", "Harga Beli", "Harga Jual"
             }
         ));
+        inventoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(inventoryTable);
 
         searchField.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +250,6 @@ public class InventoryFrame extends javax.swing.JFrame {
         editButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
         editButton.setForeground(new java.awt.Color(255, 255, 255));
         editButton.setText("Ubah");
-        editButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
         editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,7 +405,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(stokField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(stokField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -605,7 +609,7 @@ public class InventoryFrame extends javax.swing.JFrame {
         
         try {
             // Query untuk menghapus data berdasarkan ID
-            String query_hapus = "DELETE FROM pesanan WHERE kode = ?";
+            String query_hapus = "DELETE FROM barang WHERE kode = ?";
             Connection connection = (Connection) DatabaseConnection.configure();
             PreparedStatement perintah_hapus = connection.prepareStatement(query_hapus);
             perintah_hapus.setString(1,kode);
@@ -660,7 +664,7 @@ public class InventoryFrame extends javax.swing.JFrame {
             perintah_ubah.setString(2, nama_produk);
             perintah_ubah.setDouble(3, harga);
             perintah_ubah.setInt(4, stok);
-            perintah_ubah.setDouble(6, modal);
+            perintah_ubah.setDouble(5, modal);
             // Eksekusi perintah SQL
             perintah_ubah.executeUpdate();
             
@@ -677,10 +681,9 @@ public class InventoryFrame extends javax.swing.JFrame {
     }   
     }//GEN-LAST:event_editButtonActionPerformed
 
-     private void inventoryTableMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        
+    private void inventoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTableMouseClicked
+        // TODO add your handling code here:int baris = inventoryTable.rowAtPoint(evt.getPoint());
         int baris = inventoryTable.rowAtPoint(evt.getPoint());
-
         // Ambil data dari baris yang diklik dan set ke text field
         String kode_barang = inventoryTable.getValueAt(baris, 0).toString();
         String nama_produk = inventoryTable.getValueAt(baris, 1).toString();
@@ -698,7 +701,7 @@ public class InventoryFrame extends javax.swing.JFrame {
         stokField.setText(kuantitas);
         hargaField.setText(harga_jual);
         biayaBelanjaField.setText(harga_beli); 
-    }              
+    }//GEN-LAST:event_inventoryTableMouseClicked
 
                                           
 
