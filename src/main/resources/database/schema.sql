@@ -64,8 +64,20 @@ AFTER INSERT
 ON `detail_transaksi`
 FOR EACH ROW
 BEGIN
-    UPDATE `barang`
-    SET `stok` = `stok` - NEW.`kuantitas_barang`;
+    DECLARE `stok_sekarang` INT UNSIGNED;
+
+    SELECT `stok`
+    FROM `barang`
+    WHERE `kode` = NEW.`kode_barang`;
+
+    START TRANSACTION;
+    IF (`stok_sekarang` > 0) THEN
+        UPDATE `barang`
+        SET `stok` = `stok` - NEW.`kuantitas_barang`;
+        COMMIT;
+    ELSE
+        ROLLBACK;
+    END IF;
 END//
 
 CREATE TRIGGER `hitung_subtotal_detail_transaksi`
