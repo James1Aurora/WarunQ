@@ -16,6 +16,10 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +29,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -420,6 +429,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
+        playSound("audio/Barcode-scanner-beep-sound.wav");
+        System.out.println("Clicked");
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
     /**
@@ -534,6 +545,39 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         
         dateLabel.setText(now.format(dateFormatter));
         timeLabel.setText(now.format(timeFormatter));
+    }
+    
+    private void playSound(String relativePath) {
+
+
+            new Thread(() -> {
+                try (InputStream audioSrc = getClass().getClassLoader().getResourceAsStream(relativePath)) {
+                    
+//                File soundFile = new File(fileName);
+//
+//                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+//
+//                Clip clip = AudioSystem.getClip();
+//
+//                clip.open(audioInputStream);
+//
+//                clip.start();
+
+                    if (audioSrc == null) {
+                        System.err.println("Could not find the file: " + relativePath);
+                        return;
+                    }
+                    
+                    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioSrc);
+                    Clip clip = AudioSystem.getClip();
+                    clip.open(audioInputStream);
+                    clip.start();
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    e.printStackTrace();
+                    Logger.getLogger(PosFrame.class.getName()).log(Level.SEVERE, "Exception occurred", e);
+                }
+            }).start();
+            
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
