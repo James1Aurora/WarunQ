@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,6 +52,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private WebcamPanel panel = null;
     private Webcam webcam = null;
     private Executor executor = Executors.newSingleThreadExecutor(this);
+    
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("id-ID"));
     
     /**
      * Creates new form inventory
@@ -93,13 +96,15 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         removeFromCartButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         cartTable = new javax.swing.JTable();
-        cashLabel = new javax.swing.JLabel();
         subtotalLabel = new javax.swing.JLabel();
         payButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
         dateLabel = new javax.swing.JLabel();
+        cashField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jButton5.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
         jButton5.setText("Dashboard");
@@ -320,20 +325,11 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 480, 360));
 
-        cashLabel.setBackground(new java.awt.Color(0, 0, 0));
-        cashLabel.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        cashLabel.setForeground(new java.awt.Color(102, 102, 102));
-        cashLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cashLabel.setText("Tunai");
-        cashLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
-        cashLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(cashLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 280, 40));
-
         subtotalLabel.setBackground(new java.awt.Color(0, 0, 0));
         subtotalLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         subtotalLabel.setForeground(new java.awt.Color(102, 102, 102));
         subtotalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        subtotalLabel.setText("Sub-Total");
+        subtotalLabel.setText("Subtotal");
         subtotalLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 102, 102), null, new java.awt.Color(204, 204, 204)));
         subtotalLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel4.add(subtotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 410, 30));
@@ -353,7 +349,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 12)); // NOI18N
-        jLabel8.setText("Sub-Total");
+        jLabel8.setText("Subtotal");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
 
         timeLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
@@ -367,6 +363,23 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         dateLabel.setText("Jumat, 14 Juni 2024");
         dateLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel4.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 280, 30));
+
+        cashField.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 24)); // NOI18N
+        cashField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        cashField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashFieldActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cashField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 180, 40));
+
+        jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 24)); // NOI18N
+        jLabel2.setText("Rp");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 40));
+
+        jLabel4.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 16)); // NOI18N
+        jLabel4.setText("Tunai");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 60, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -436,9 +449,23 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     }//GEN-LAST:event_kodeBarangFieldActionPerformed
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         DefaultTableModel cartDefaultTableModel = (DefaultTableModel) cartTable.getModel();
+
         String queryTransaksi = "INSERT INTO `transaksi` VALUES ();";
+        
+        String cash = cashField.getText();
+        String total = totalLabel.getText();
+        
+        total = String.valueOf(convertRupiahToDouble(total));
+        
+        double cashDouble = Double.parseDouble(cash);
+        double totalDouble = Double.parseDouble(total) ;
+
+        if (cashDouble < totalDouble) {
+            JOptionPane.showMessageDialog(null, "Tunai tidak mencukupi.");
+            return;
+        }
         
         try {
             Connection connection = (Connection) DatabaseConnection.configure();
@@ -465,8 +492,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                     if (rowsAffectedDetailTransaksi > 0) {
                         System.out.println("Insert berhasil. " + rowsAffectedDetailTransaksi + " baris telah dimasukkan.");
 
-                        JOptionPane.showMessageDialog(null, "hi");
-                         new ReceiptFrame().setVisible(true);
+                         new ReceiptFrame(cashDouble, totalDouble, lastInsertedId).setVisible(true);
                          dispose();
                      } else {
                         System.out.println("Insert gagal.");
@@ -504,10 +530,10 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                 String harga = resultSet.getString("harga");
                 boolean found = false;
                 
-                for (int i = 0; i < cartDefaultTableModel.getRowCount(); i++) {
-                    if (nama.equals(cartDefaultTableModel.getValueAt(i, 1))) {
-                        int currentQuantity = (int) cartDefaultTableModel.getValueAt(i, 2);
-                        cartDefaultTableModel.setValueAt(currentQuantity + 1, i, 2);
+                for (int row = 0; row < cartDefaultTableModel.getRowCount(); row++) {
+                    if (nama.equals(cartDefaultTableModel.getValueAt(row, 1))) {
+                        int currentQuantity = (int) cartDefaultTableModel.getValueAt(row, 2);
+                        cartDefaultTableModel.setValueAt(currentQuantity + 1, row, 2);
                         found = true;
                         break;
                     }
@@ -519,6 +545,37 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        
+        if (cartDefaultTableModel.getRowCount() > 0) {
+            String kode = kodeBarangField.getText();
+            boolean found = false;
+            
+            for (int i = 0; i < cartDefaultTableModel.getRowCount(); i++) {
+                    if (kode.equals(cartDefaultTableModel.getValueAt(i, 0))) {
+                        double kuantitas = Double.parseDouble(cartDefaultTableModel.getValueAt(i, 2).toString());
+                        double harga = Double.parseDouble(cartDefaultTableModel.getValueAt(i, 3).toString());
+                        double subtotal = kuantitas * harga;
+                        
+                        subtotalLabel.setText(String.valueOf(subtotal));
+                        break;
+                    }
+                }
+            
+            int kuantitasSekarang = Integer.parseInt(cartDefaultTableModel.getValueAt(cartDefaultTableModel.getRowCount() - 1, 2).toString());
+            double hargaSekarang = Double.parseDouble(cartDefaultTableModel.getValueAt(cartDefaultTableModel.getRowCount() - 1, 3).toString());
+            double subtotal = kuantitasSekarang * hargaSekarang;
+            double total = 0.0;
+            
+            for (int row = 0; row < cartDefaultTableModel.getRowCount(); row++) {
+                double kuantitas = Double.parseDouble(cartDefaultTableModel.getValueAt(row, 2).toString());
+                double harga = Double.parseDouble(cartDefaultTableModel.getValueAt(row, 3).toString());
+
+                total += kuantitas * harga;
+            }
+            
+            subtotalLabel.setText(formatRupiah.format(subtotal));
+            totalLabel.setText(formatRupiah.format(total));
         }
         
         playSound("audio/coin2.wav");
@@ -536,6 +593,23 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             }
         }
         
+        if (cartDefaultTableModel.getRowCount() > 0) {
+            int kuantitasSekarang = Integer.parseInt(cartDefaultTableModel.getValueAt(cartDefaultTableModel.getRowCount() - 1, 2).toString());
+            double hargaSekarang = Double.parseDouble(cartDefaultTableModel.getValueAt(cartDefaultTableModel.getRowCount() - 1, 3).toString());
+            double subtotal = kuantitasSekarang * hargaSekarang;
+            double total = 0.0;
+            
+            for (int row = 0; row < cartDefaultTableModel.getRowCount(); row++) {
+                double kuantitas = Double.parseDouble(cartDefaultTableModel.getValueAt(row, 2).toString());
+                double harga = Double.parseDouble(cartDefaultTableModel.getValueAt(row, 3).toString());
+
+                total += kuantitas * harga;
+            }
+            
+            subtotalLabel.setText(formatRupiah.format(subtotal));
+            totalLabel.setText(formatRupiah.format(total));
+        }
+        
         playSound("audio/Voicy_Roblox Delete.wav");
     }//GEN-LAST:event_removeFromCartButtonActionPerformed
 
@@ -550,6 +624,10 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         
         kodeBarangLabel.setText(kode);
     }//GEN-LAST:event_cartTableMouseClicked
+
+    private void cashFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cashFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -696,21 +774,31 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
                     e.printStackTrace();
                     Logger.getLogger(PosFrame.class.getName()).log(Level.SEVERE, "Exception occurred", e);
                 }
-            }).start();
-            
+            }).start();   
+    }
+    
+    public static double convertRupiahToDouble(String cashRupiah) {
+        // Menghapus tanda baca dan karakter khusus
+        String cleanCash = cashRupiah.replaceAll("[^\\d]", "");
+
+        // Mengonversi ke nilai angka (double)
+        double cashDouble = Double.parseDouble(cleanCash) / 100; // Karena nilai dalam format rupiah berada dalam pecahan sen
+        return cashDouble;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCartButton;
     private javax.swing.JPanel cameraPanel;
     private javax.swing.JTable cartTable;
-    private javax.swing.JLabel cashLabel;
+    private javax.swing.JTextField cashField;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

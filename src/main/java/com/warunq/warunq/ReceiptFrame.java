@@ -5,6 +5,9 @@
 package com.warunq.warunq;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -19,9 +22,10 @@ public class ReceiptFrame extends javax.swing.JFrame {
     /**
      * Creates new form inventory
      */
-    public ReceiptFrame(Double cash, Double total, int orderId) {
+    public ReceiptFrame(Double cash, Double total, int transactionId) {
         initComponents();
         
+        String query = "SELECT `` FROM `detail_transaksi` WHERE `id_transaksi` = '" + transactionId + "';";
         String cashRupiah = formatRupiah.format(cash);
         String totalRupiah = formatRupiah.format(total);
         
@@ -32,9 +36,21 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
         changeLabel.setText(formatRupiah.format(change));
         
-        Connection connection = (Connection) DatabaseConnection.configure();
-        
-        
+//        try {
+//            Connection connection = (Connection) DatabaseConnection.configure();
+//            
+//            Statement statement = connection.createStatement();
+//            
+//            ResultSet resultSet = statement.executeQuery(query);
+//            
+//            int i = 1;
+//            while (resultSet.next()) {                
+//                i++,
+//                
+//            }
+//            
+//        } catch (SQLException e) {
+//        }
     }
 
     /**
@@ -107,7 +123,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "No.", "Nama Produk", "Tanggal", "Kuantitas", "Sub-Total"
+                "No.", "Nama Barang", "Kuantitas", "Harga Barang", "Subtotal"
             }
         ));
         jScrollPane1.setViewportView(resiTable);
