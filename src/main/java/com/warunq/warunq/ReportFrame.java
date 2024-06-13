@@ -3,7 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.warunq.warunq;
-
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Win10
@@ -15,6 +22,56 @@ public class ReportFrame extends javax.swing.JFrame {
      */
     public ReportFrame() {
         initComponents();
+        baca_data();
+    }
+    
+    private void baca_data(){
+        baca_data(null);
+    }
+    
+    private void baca_data(String filter) {
+        DefaultTableModel data_transaksi = new DefaultTableModel();
+        data_transaksi.addColumn("Tanggal");
+        data_transaksi.addColumn("Kode Barang");
+        data_transaksi.addColumn("Nama Barang");
+        data_transaksi.addColumn("Kuantitas");
+        data_transaksi.addColumn("Nilai Satuan");
+        data_transaksi.addColumn("Nilai Rupiah");
+
+        try {
+            String query_data = "SELECT t.tanggalwaktu AS tanggal_transaksi, " +
+                                "dt.kode_barang, " +
+                                "b.nama AS nama_barang, " +
+                                "dt.kuantitas_barang AS kuantitas, " +
+                                "b.harga AS nilai_satuan, " +
+                                "dt.subtotal " +
+                                "FROM transaksi t " +
+                                "JOIN detail_transaksi dt ON t.id = dt.id_transaksi " +
+                                "JOIN barang b ON dt.kode_barang = b.kode " +
+                                "ORDER BY t.tanggalwaktu";
+            if (filter != null && !filter.isEmpty()) {
+            query_data += " WHERE nama LIKE '%" + filter + "%' OR kode LIKE '%" + filter + "%'";
+        }
+            Connection connection = (Connection) DatabaseConnection.configure();
+            Statement statement_sql = connection.createStatement();
+            ResultSet hasil_SQL = statement_sql.executeQuery(query_data);
+
+            while (hasil_SQL.next()) {
+                data_transaksi.addRow(new Object[]{
+                    hasil_SQL.getTimestamp("tanggal_transaksi"),
+                    hasil_SQL.getString("kode_barang"),
+                    hasil_SQL.getString("nama_barang"),
+                    hasil_SQL.getInt("kuantitas"),
+                    hasil_SQL.getDouble("nilai_satuan"),
+                    hasil_SQL.getDouble("subtotal")
+                });
+            }
+            reportTable.setModel(data_transaksi);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -122,7 +179,7 @@ public class ReportFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Tanggal", "Id", "Nama Produk", "Kuantitas", "Nilai Satuan", "Nilai Rupiah"
+                "Tanggal", "Kode Barang", "Nama Barang", "Kuantitas", "Nilai Satuan", "Nilai Rupiah"
             }
         ));
         jScrollPane1.setViewportView(reportTable);
