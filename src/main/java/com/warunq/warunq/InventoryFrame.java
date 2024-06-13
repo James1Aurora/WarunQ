@@ -29,6 +29,10 @@ public class InventoryFrame extends javax.swing.JFrame {
     }
     
     private void baca_data(){
+        baca_data(null);
+    }
+    
+    private void baca_data(String filter){
         DefaultTableModel data_inventory = new DefaultTableModel();
         data_inventory.addColumn("Kode Barang");
         data_inventory.addColumn("Nama Produk");
@@ -39,6 +43,9 @@ public class InventoryFrame extends javax.swing.JFrame {
       
      try{
         String query_data = "SELECT * FROM barang";
+        if (filter != null && !filter.isEmpty()) {
+            query_data += " WHERE nama LIKE '%" + filter + "%' OR kode LIKE '%" + filter + "%'";
+        }
         Connection connection = (Connection) DatabaseConnection.configure();
         Statement statement_sql = connection.createStatement();
         ResultSet hasil_SQL = statement_sql.executeQuery(query_data);
@@ -524,6 +531,8 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        String searchText = searchField.getText();
+        baca_data(searchText);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void sortBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBoxActionPerformed
