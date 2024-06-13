@@ -525,6 +525,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             
             if (result != null) {
                 kodeBarangField.setText(result.getText());
+                addToCartButton.doClick();
             }
                     
         } while (true);
