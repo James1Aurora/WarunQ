@@ -57,8 +57,30 @@ CREATE TABLE `pesanan` (
     FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
 );
 
+
+
+DETERMINISTIC //
+CREATE TRIGGER `hitung_stok`
+AFTER INSERT
+ON `detail_transaksi`
+FOR EACH ROW
+BEGIN
+    UPDATE `barang`
+    SET `stok` = `stok` - NEW.`kuantitas_barang`;
+END//
+DETERMINISTIC ;
+
+CREATE VIEW `resi` AS
+SELECT `detail_transaksi`.`id_transaksi`,
+    `barang`.`nama`,
+    `barang`.`harga`,
+    `detail_transaksi`.`kuantitas_barang`,
+    `detail_transaksi`.`subtotal`
+FROM `detail_transaksi`
+JOIN `barang` ON `barang`.`kode` = `detail_transaksi`.`kode_barang`;
+
 CREATE VIEW `laporan` AS
-    SELECT `t.tanggalwaktu`, `dt.id_transaksi`, `dt.kode_barang` AS `id`, `n.nama` AS `nama_barang`,
-    SUM(`dt.kuantitas_barang`) AS `kuantitas`, `b.harga` AS `nilai_satuan`, SUM(`dt.subtotal`) AS total
-    FROM `detail_transaksi` AS `dt` INNER JOIN `transaksi` AS `t` ON `dt.id_transaksi` = `t.id`
-    INNER JOIN `barang` AS `b` ON `dt.kode_barang` = `b.kode` GROUP BY `dt.id_transaksi`, `dt.kode_barang`;
+SELECT `t.tanggalwaktu`, `dt.id_transaksi`, `dt.kode_barang` AS `id`, `n.nama` AS `nama_barang`,
+SUM(`dt.kuantitas_barang`) AS `kuantitas`, `b.harga` AS `nilai_satuan`, SUM(`dt.subtotal`) AS total
+FROM `detail_transaksi` AS `dt` INNER JOIN `transaksi` AS `t` ON `dt.id_transaksi` = `t.id`
+INNER JOIN `barang` AS `b` ON `dt.kode_barang` = `b.kode` GROUP BY `dt.id_transaksi`, `dt.kode_barang`;
