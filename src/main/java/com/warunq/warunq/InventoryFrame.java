@@ -536,7 +536,7 @@ public class InventoryFrame extends javax.swing.JFrame {
 //        posFrame.setVisible(true);
 //        this.setVisible(false);
         new PosFrame().setVisible(true);
-//        dispose();
+        dispose();
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed

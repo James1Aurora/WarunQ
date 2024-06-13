@@ -407,8 +407,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 //        homeFrame.setVisible(true);
 //        this.setVisible(false);
         new HomeFrame().setVisible(true);
-        webcam.close();
         dispose();
+        webcam.close();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
@@ -417,8 +417,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 //        inventoryFrame.setVisible(true);
 //        this.setVisible(false);
         new InventoryFrame().setVisible(true);
-        webcam.close();
         dispose();
+        webcam.close();
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
@@ -427,8 +427,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 //        reportFrame.setVisible(true);
 //        this.setVisible(false);
         new ReportFrame().setVisible(true);
-        webcam.close();
         dispose();
+        webcam.close();
     }//GEN-LAST:event_reportButtonActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
@@ -437,8 +437,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 //        settingsFrame.setVisible(true);
 //        this.setVisible(false);
         new SettingsFrame().setVisible(true);
-        webcam.close();
         dispose();
+        webcam.close();
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -448,8 +448,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
         new LoginFrame().setVisible(true);
-        webcam.close();
         dispose();
+        webcam.close();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed

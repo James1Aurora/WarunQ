@@ -443,6 +443,7 @@ public class SettingsFrame extends javax.swing.JFrame {
 //        posFrame.setVisible(true);
 //        this.setVisible(false);
         new PosFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
