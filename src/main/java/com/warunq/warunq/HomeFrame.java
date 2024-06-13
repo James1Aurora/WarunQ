@@ -31,6 +31,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         buttonHome1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
         inventoryButton = new javax.swing.JButton();
@@ -62,15 +63,32 @@ public class HomeFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane1)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
@@ -229,9 +247,13 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-        PosFrame posFrame = new PosFrame();
-        posFrame.setVisible(true);
+//        PosFrame posFrame = new PosFrame();
+//        posFrame.setVisible(true);
 //        this.setVisible(false);
+
+        PosFrame posFrame = new PosFrame();
+        jDesktopPane1.add(posFrame);
+        posFrame.setVisible(true);
     }//GEN-LAST:event_posButtonActionPerformed
 
     /**
@@ -281,6 +303,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JButton homeButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JButton jButton5;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutButton;

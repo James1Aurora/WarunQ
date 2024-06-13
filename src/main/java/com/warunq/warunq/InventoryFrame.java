@@ -458,9 +458,11 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-        PosFrame posFrame = new PosFrame();
-        posFrame.setVisible(true);
+//        PosFrame posFrame = new PosFrame();
+//        posFrame.setVisible(true);
 //        this.setVisible(false);
+        new PosFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed

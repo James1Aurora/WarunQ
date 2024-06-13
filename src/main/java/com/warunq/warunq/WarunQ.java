@@ -11,6 +11,9 @@ package com.warunq.warunq;
 public class WarunQ {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        PreOrderFrame frame = new PreOrderFrame();
+        frame.setSize(1280, 720); // Set ukuran layar awal
+        frame.setDefaultCloseOperation(PreOrderFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }
