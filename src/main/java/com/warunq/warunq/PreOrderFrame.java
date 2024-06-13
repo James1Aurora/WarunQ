@@ -459,7 +459,7 @@ public class PreOrderFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         PosFrame posFrame = new PosFrame();
         posFrame.setVisible(true);
-        this.setVisible(false);
+//        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void kuantitasBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kuantitasBarangFieldActionPerformed

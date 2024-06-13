@@ -439,7 +439,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         PosFrame posFrame = new PosFrame();
         posFrame.setVisible(true);
-        this.setVisible(false);
+//        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
