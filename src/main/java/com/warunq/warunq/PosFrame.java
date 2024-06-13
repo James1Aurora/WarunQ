@@ -77,7 +77,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         warunqLabel = new javax.swing.JLabel();
         posButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        kameraPanel = new javax.swing.JPanel();
+        cameraPanel = new javax.swing.JPanel();
         kodeBarangField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -227,10 +227,10 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kameraPanel.setBackground(new java.awt.Color(0, 0, 0));
-        kameraPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 2, true));
-        kameraPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(kameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 160));
+        cameraPanel.setBackground(new java.awt.Color(0, 0, 0));
+        cameraPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 2, true));
+        cameraPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.add(cameraPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 160));
 
         kodeBarangField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,13 +346,13 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
         timeLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
         timeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        timeLabel.setText("15:15");
+        timeLabel.setText("08:00:00");
         timeLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel4.add(timeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 280, 30));
 
         dateLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 14)); // NOI18N
         dateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dateLabel.setText("Senin, 10/10/2024");
+        dateLabel.setText("Jumat, 14 Juni 2024");
         dateLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel4.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 280, 30));
 
@@ -430,7 +430,6 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
         playSound("audio/Barcode-scanner-beep-sound.wav");
-        System.out.println("Clicked");
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
     /**
@@ -484,7 +483,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         panel.setPreferredSize(size);
         panel.setFPSDisplayed(true);
         
-        kameraPanel.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 120));
+        cameraPanel.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, cameraPanel.getWidth(), cameraPanel.getHeight()));
         
         executor.execute(this);
     }
@@ -583,6 +582,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCartButton;
+    private javax.swing.JPanel cameraPanel;
     private javax.swing.JTable cartTable;
     private javax.swing.JLabel cashLabel;
     private javax.swing.JLabel dateLabel;
@@ -599,7 +599,6 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JPanel kameraPanel;
     private javax.swing.JTextField kodeBarangField;
     private javax.swing.JLabel kodeBarangLabel;
     private javax.swing.JButton logoutButton;
