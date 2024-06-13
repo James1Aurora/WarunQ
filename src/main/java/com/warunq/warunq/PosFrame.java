@@ -291,6 +291,11 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         removeFromCartButton.setBackground(new java.awt.Color(153, 0, 0));
         removeFromCartButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeFromCartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        removeFromCartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeFromCartButtonActionPerformed(evt);
+            }
+        });
         jPanel4.add(removeFromCartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 40, 30));
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -430,9 +435,14 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         // TODO add your handling code here:
-        playSound("audio/Barcode-scanner-beep-sound.wav");
-        kodeBarangField.setText("");
+        playSound("audio/coin2.wav");
+//        kodeBarangField.setText("");
     }//GEN-LAST:event_addToCartButtonActionPerformed
+
+    private void removeFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromCartButtonActionPerformed
+        // TODO add your handling code here:
+        playSound("audio/Voicy_Roblox Delete.wav");
+    }//GEN-LAST:event_removeFromCartButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -526,7 +536,8 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
             
             if (result != null) {
                 kodeBarangField.setText(result.getText());
-                addToCartButton.doClick();
+                playSound("audio/Barcode-scanner-beep-sound.wav");
+//                addToCartButton.doClick();
             }
                     
         } while (true);
