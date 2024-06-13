@@ -128,7 +128,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -403,30 +403,42 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
-        HomeFrame homeFrame = new HomeFrame();
-        homeFrame.setVisible(true);
-        this.setVisible(false);
+//        HomeFrame homeFrame = new HomeFrame();
+//        homeFrame.setVisible(true);
+//        this.setVisible(false);
+        new HomeFrame().setVisible(true);
+        webcam.close();
+        dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         // TODO add your handling code here:
-        InventoryFrame inventoryFrame = new InventoryFrame();
-        inventoryFrame.setVisible(true);
-        this.setVisible(false);
+//        InventoryFrame inventoryFrame = new InventoryFrame();
+//        inventoryFrame.setVisible(true);
+//        this.setVisible(false);
+        new InventoryFrame().setVisible(true);
+        webcam.close();
+        dispose();
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
         // TODO add your handling code here:
-        ReportFrame reportFrame = new ReportFrame();
-        reportFrame.setVisible(true);
-        this.setVisible(false);
+//        ReportFrame reportFrame = new ReportFrame();
+//        reportFrame.setVisible(true);
+//        this.setVisible(false);
+        new ReportFrame().setVisible(true);
+        webcam.close();
+        dispose();
     }//GEN-LAST:event_reportButtonActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-        SettingsFrame settingsFrame = new SettingsFrame();
-        settingsFrame.setVisible(true);
-        this.setVisible(false);
+//        SettingsFrame settingsFrame = new SettingsFrame();
+//        settingsFrame.setVisible(true);
+//        this.setVisible(false);
+        new SettingsFrame().setVisible(true);
+        webcam.close();
+        dispose();
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -435,12 +447,15 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        new LoginFrame().setVisible(true);
+        webcam.close();
+        dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-        PosFrame posFrame = new PosFrame();
-        posFrame.setVisible(true);
+//        PosFrame posFrame = new PosFrame();
+//        posFrame.setVisible(true);
 //        this.setVisible(false);
     }//GEN-LAST:event_posButtonActionPerformed
 
@@ -618,9 +633,9 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         int row = cartTable.rowAtPoint(evt.getPoint());
         
         String kode = cartTable.getValueAt(row, 0).toString();
-        String barang = cartTable.getValueAt(row, 1).toString();
-        String kuantitas = cartTable.getValueAt(row, 2).toString();
-        String harga = cartTable.getValueAt(row, 3).toString();
+//        String barang = cartTable.getValueAt(row, 1).toString();
+//        String kuantitas = cartTable.getValueAt(row, 2).toString();
+//        String harga = cartTable.getValueAt(row, 3).toString();
         
         kodeBarangLabel.setText(kode);
     }//GEN-LAST:event_cartTableMouseClicked

@@ -514,6 +514,8 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        new LoginFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
@@ -534,7 +536,7 @@ public class InventoryFrame extends javax.swing.JFrame {
 //        posFrame.setVisible(true);
 //        this.setVisible(false);
         new PosFrame().setVisible(true);
-        dispose();
+//        dispose();
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void kodeBarangFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeBarangFieldActionPerformed

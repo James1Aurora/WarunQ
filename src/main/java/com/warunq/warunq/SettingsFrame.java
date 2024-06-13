@@ -433,13 +433,16 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        new LoginFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
-        PosFrame posFrame = new PosFrame();
-        posFrame.setVisible(true);
+//        PosFrame posFrame = new PosFrame();
+//        posFrame.setVisible(true);
 //        this.setVisible(false);
+        new PosFrame().setVisible(true);
     }//GEN-LAST:event_posButtonActionPerformed
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
