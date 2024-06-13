@@ -133,10 +133,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
         receiptTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "No.", "Nama Barang", "Kuantitas", "Harga Barang", "Subtotal"
@@ -277,6 +274,8 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        new PosFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
