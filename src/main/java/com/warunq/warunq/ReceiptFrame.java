@@ -25,7 +25,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
     public ReceiptFrame(Double cash, Double total, int transactionId) {
         initComponents();
         
-        String query = "SELECT `` FROM `detail_transaksi` WHERE `id_transaksi` = '" + transactionId + "';";
+        String query = "SELECT * FROM `resi` WHERE `id_transaksi` = '" + transactionId + "';";
         String cashRupiah = formatRupiah.format(cash);
         String totalRupiah = formatRupiah.format(total);
         
@@ -324,7 +324,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReceiptFrame().setVisible(true);
+                new ReceiptFrame(0.0, 0.0, 0).setVisible(true);
             }
         });
     }
