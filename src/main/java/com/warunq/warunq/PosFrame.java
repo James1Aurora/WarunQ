@@ -164,7 +164,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         });
 
         settingsButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        settingsButton.setText("Pengaturan");
+        settingsButton.setText("Pesanan");
         settingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         settingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -436,7 +436,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
 //        SettingsFrame settingsFrame = new SettingsFrame();
 //        settingsFrame.setVisible(true);
 //        this.setVisible(false);
-        new SettingsFrame().setVisible(true);
+        new PreOrderFrame().setVisible(true);
         dispose();
         webcam.close();
     }//GEN-LAST:event_settingsButtonActionPerformed
