@@ -5,8 +5,12 @@
 SHOW DATABASES;
 SHOW TABLES;
 
-USE `db_warunq`;
+-- USE `db_warunq`;
 
+DROP TRIGGER IF EXISTS `hitung_total_transaksi`;
+DROP TRIGGER IF EXISTS `hitung_subtotal_detail_transaksi`;
+DROP TRIGGER IF EXISTS `hitung_subtotal_pesanan`;
+DROP VIEW IF EXISTS `resi`;
 DROP TABLE IF EXISTS `detail_transaksi`;
 DROP TABLE IF EXISTS `pesanan`;
 DROP TABLE IF EXISTS `transaksi`;
@@ -64,20 +68,9 @@ AFTER INSERT
 ON `detail_transaksi`
 FOR EACH ROW
 BEGIN
-    DECLARE `stok_sekarang` INT UNSIGNED;
-
-    SELECT `stok`
-    FROM `barang`
+    UPDATE `barang`
+    SET `stok` = `stok` - NEW.`kuantitas_barang`
     WHERE `kode` = NEW.`kode_barang`;
-
-    START TRANSACTION;
-    IF (`stok_sekarang` > 0) THEN
-        UPDATE `barang`
-        SET `stok` = `stok` - NEW.`kuantitas_barang`;
-        COMMIT;
-    ELSE
-        ROLLBACK;
-    END IF;
 END//
 
 CREATE TRIGGER `hitung_subtotal_detail_transaksi`
@@ -109,7 +102,13 @@ BEFORE INSERT
 ON `pesanan`
 FOR EACH ROW
 BEGIN
-    SET NEW.`subtotal` = NEW.`kuantitas_barang` * (SELECT `harga` FROM `barang` WHERE `kode` = NEW.`kode_barang`);
+    DECLARE `harga_barang` DECIMAL(15, 2);
+
+    SELECT `harga` INTO `harga_barang`
+    FROM `barang`
+    WHERE `kode` = NEW.`kode_barang`;
+
+    SET NEW.`subtotal` = NEW.`kuantitas_barang` * `harga_barang`;
 END//
 DELIMITER ;
 

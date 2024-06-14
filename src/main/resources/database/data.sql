@@ -54,15 +54,12 @@ INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang
 -- Setelah data `detail_transaksi` dimasukkan, trigger `hitung_total_transaksi` akan menghitung ulang total transaksi dalam `transaksi` table.
 
 
-INSERT INTO `transaksi` (`tanggalwaktu`) VALUES 
-('2024-06-10 08:30:00'),
-('2024-06-10 09:45:00'),
-('2024-06-10 10:15:00');
+INSERT INTO `transaksi` VALUES ();
 
 -- Insert dummy data into `detail_transaksi` table without specifying `subtotal`
 INSERT INTO `detail_transaksi` (`id_transaksi`, `kode_barang`, `kuantitas_barang`) VALUES 
-(10, 'BRG001', 2),
-(10, 'BRG002', 5),
-(11, 'BRG003', 3),
-(12, 'BRG004', 2),
-(12, 'BRG005', 5);
+((SELECT LAST_INSERT_ID()), '08968617072', 2),
+((SELECT LAST_INSERT_ID()), '8886057883665', 5),
+((SELECT LAST_INSERT_ID()), '0735745243602', 3),
+((SELECT LAST_INSERT_ID()), '8991002105560', 2),
+((SELECT LAST_INSERT_ID()), '089686043204', 5);
