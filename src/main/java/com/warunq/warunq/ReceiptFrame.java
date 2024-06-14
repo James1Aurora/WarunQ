@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -271,6 +272,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        printReceipt(receiptTable);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -343,6 +345,19 @@ public class ReceiptFrame extends javax.swing.JFrame {
                 new ReceiptFrame(cashGlobal, totalGlobal, transactionIdGlobal).setVisible(true);
             }
         });
+    }
+    
+    private void printReceipt(JTable table) {
+        try {
+            // Mencetak tabel
+            if (table.print()) {
+                System.out.println("Resi berhasil dicetak");
+            } else {
+                System.out.println("Resi dibatalkan");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
