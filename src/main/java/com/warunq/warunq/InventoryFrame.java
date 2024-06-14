@@ -591,28 +591,34 @@ public class InventoryFrame extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:    // Ambil baris yang dipilih di tabel
-    int baris = inventoryTable.getSelectedRow();
-    if (baris != -1) {
+        int baris = inventoryTable.getSelectedRow();
+        if (baris != -1) {
         // Ambil ID dari baris yang dipilih
         String kode = inventoryTable.getValueAt(baris, 0).toString();
         
-        try {
-            // Query untuk menghapus data berdasarkan ID
-            String query_hapus = "DELETE FROM barang WHERE kode = ?";
-            Connection connection = (Connection) DatabaseConnection.configure();
-            PreparedStatement perintah_hapus = connection.prepareStatement(query_hapus);
-            perintah_hapus.setString(1,kode);
+        // Tampilkan dialog konfirmasi
+        int response = JOptionPane.showConfirmDialog(null, "Yakin ingin menghapus?", "Konfirmasi Penghapusan", JOptionPane.YES_NO_OPTION);
+        
+        // Jika pengguna memilih "Ya", hapus data
+        if (response == JOptionPane.YES_OPTION) {
+            try {
+                // Query untuk menghapus data berdasarkan ID
+                String query_hapus = "DELETE FROM barang WHERE kode = ?";
+                Connection connection = (Connection) DatabaseConnection.configure();
+                PreparedStatement perintah_hapus = connection.prepareStatement(query_hapus);
+                perintah_hapus.setString(1, kode);
 
-            // Eksekusi perintah SQL
-            perintah_hapus.executeUpdate();
-            
-            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
-            baca_data();
-            layar_bersih();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+                // Eksekusi perintah SQL
+                perintah_hapus.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+                baca_data();
+                layar_bersih();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            }
         }
     } else {
         JOptionPane.showMessageDialog(null, "Pilih baris yang ingin dihapus terlebih dahulu!");
