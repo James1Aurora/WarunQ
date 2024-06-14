@@ -689,7 +689,13 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
     
     private void initWebcam() {
         Dimension size = WebcamResolution.QVGA.getSize();
-        webcam = Webcam.getWebcams().get(0);
+        String cameraOptions = "";
+        
+        for (int i = 0; i < Webcam.getWebcams().size(); i++) {
+            cameraOptions += i + ": " + Webcam.getWebcams().get(i).getName() + "\n";
+        }
+        
+        webcam = Webcam.getWebcams().get(Integer.parseInt(JOptionPane.showInputDialog(null, cameraOptions)));
         webcam.setViewSize(size);
         
         panel = new WebcamPanel(webcam);
