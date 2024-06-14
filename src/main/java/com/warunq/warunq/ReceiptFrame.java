@@ -4,6 +4,13 @@
  */
 package com.warunq.warunq;
 
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -272,7 +279,8 @@ public class ReceiptFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        printReceipt(receiptTable);
+//        printReceipt(receiptTable);
+        printReceipt();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -347,16 +355,52 @@ public class ReceiptFrame extends javax.swing.JFrame {
         });
     }
     
-    private void printReceipt(JTable table) {
-        try {
-            // Mencetak tabel
-            if (table.print()) {
-                System.out.println("Resi berhasil dicetak");
-            } else {
-                System.out.println("Resi dibatalkan");
+//    private void printReceipt(JTable table) {
+//        try {
+//            // Mencetak tabel
+//            if (table.print()) {
+//                System.out.println("Resi berhasil dicetak");
+//            } else {
+//                System.out.println("Resi dibatalkan");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+    
+    private void printReceipt() {
+        PrinterJob job = PrinterJob.getPrinterJob();
+        job.setPrintable(new Printable() {
+            @Override
+            public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                if (pageIndex > 0) {
+                    return NO_SUCH_PAGE;
+                }
+
+                Graphics2D g2d = (Graphics2D) graphics;
+                g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+
+                // Cetak teks tambahan
+                g2d.setFont(new Font("Monospaced", Font.PLAIN, 12));
+                g2d.drawString("WarunQ - Resi Pembelian", 100, 100);
+                g2d.drawString("Tunai     : " + cashLabel.getText(), 100, 120);
+                g2d.drawString("Total     : " + totalLabel.getText(), 100, 140);
+                g2d.drawString("Kembalian : " + changeLabel.getText(), 100, 160);
+
+                // Cetak tabel
+                receiptTable.print(g2d);
+
+                return PAGE_EXISTS;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        });
+
+        boolean doPrint = job.printDialog();
+        if (doPrint) {
+            try {
+                job.print();
+            } catch (PrinterException e) {
+                e.printStackTrace();
+            }
         }
     }
 
