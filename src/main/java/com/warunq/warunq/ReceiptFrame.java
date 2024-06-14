@@ -104,6 +104,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("WarunQ - Resi");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -214,7 +215,7 @@ public class ReceiptFrame extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(totalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                                    .addComponent(totalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addContainerGap())
         );

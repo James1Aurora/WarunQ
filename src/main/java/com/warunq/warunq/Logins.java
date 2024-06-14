@@ -42,6 +42,7 @@ public class Logins extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("WarunQ - Logins");
 
         jPanel4.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel4.setMinimumSize(new java.awt.Dimension(640, 360));

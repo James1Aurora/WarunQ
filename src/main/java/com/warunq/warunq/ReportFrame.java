@@ -142,6 +142,7 @@ public class ReportFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("WarunQ - Laporan");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

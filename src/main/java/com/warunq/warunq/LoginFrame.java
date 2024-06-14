@@ -32,8 +32,8 @@ public class LoginFrame extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    
     private void initComponents() {
+
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
@@ -50,7 +50,7 @@ public class LoginFrame extends javax.swing.JFrame {
         registerButtonLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MASUK");
+        setTitle("WarunQ - Login");
 
         jPanel1.setBackground(new java.awt.Color(244, 206, 20));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -64,9 +64,8 @@ public class LoginFrame extends javax.swing.JFrame {
         loginFrameLabel.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
         loginFrameLabel.setText("Masuk");
 
-        usernameLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 18)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         usernameLabel.setText("Nama Akun");
-        usernameField.setFont(new java.awt.Font("RobotoMono Nerd Font",0,18));
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,9 +73,8 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        passwordLabel.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 18)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         passwordLabel.setText("Kata Sandi");
-        passwordField.setFont(new java.awt.Font("RobotoMono Nerd Font",0,18));
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

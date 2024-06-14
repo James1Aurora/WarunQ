@@ -129,6 +129,7 @@ public class PosFrame extends javax.swing.JFrame implements Runnable, ThreadFact
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("WarunQ - Kasir");
 
         jPanel2.setBackground(new java.awt.Color(244, 206, 20));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

@@ -114,6 +114,7 @@ public class PreOrderFrame extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("WarunQ - Pesanan");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

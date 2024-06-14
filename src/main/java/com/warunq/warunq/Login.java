@@ -39,6 +39,7 @@ public class Login extends javax.swing.JPanel {
         rSMaterialButtonRectangle2 = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setToolTipText("WarunQ - Login");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(640, 360));
         setPreferredSize(new java.awt.Dimension(1280, 720));
