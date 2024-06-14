@@ -95,8 +95,6 @@ public class InventoryFrame extends javax.swing.JFrame {
         inventoryTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-        sortBox = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         kodeBarangField = new javax.swing.JTextField();
         namaField = new javax.swing.JTextField();
         hargaField = new javax.swing.JTextField();
@@ -191,16 +189,6 @@ public class InventoryFrame extends javax.swing.JFrame {
             }
         });
 
-        sortBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sortBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("RobotoMono Nerd Font", 0, 10)); // NOI18N
-        jLabel2.setText("Urutkan Sesuai");
-
         kodeBarangField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kodeBarangFieldActionPerformed(evt);
@@ -257,6 +245,7 @@ public class InventoryFrame extends javax.swing.JFrame {
         editButton.setFont(new java.awt.Font("RobotoMono Nerd Font", 1, 12)); // NOI18N
         editButton.setForeground(new java.awt.Color(255, 255, 255));
         editButton.setText("Ubah");
+        editButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(244, 206, 20), 1, true));
         editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +297,7 @@ public class InventoryFrame extends javax.swing.JFrame {
         });
 
         settingsButton.setFont(new java.awt.Font("RobotoMono Nerd Font Mono Md", 0, 14)); // NOI18N
-        settingsButton.setText("Pengaturan");
+        settingsButton.setText("Pesanan");
         settingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         settingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -388,11 +377,7 @@ public class InventoryFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(sortBox, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -437,11 +422,8 @@ public class InventoryFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sortBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchButton)
                             .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -534,10 +516,6 @@ public class InventoryFrame extends javax.swing.JFrame {
         String searchText = searchField.getText();
         baca_data(searchText);
     }//GEN-LAST:event_searchButtonActionPerformed
-
-    private void sortBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sortBoxActionPerformed
 
     private void posButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posButtonActionPerformed
         // TODO add your handling code here:
@@ -767,7 +745,6 @@ public class InventoryFrame extends javax.swing.JFrame {
     private javax.swing.JTable inventoryTable;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -786,7 +763,6 @@ public class InventoryFrame extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton settingsButton;
-    private javax.swing.JComboBox<String> sortBox;
     private javax.swing.JTextField stokField;
     // End of variables declaration//GEN-END:variables
 }
