@@ -43,8 +43,8 @@ CREATE TABLE `detail_transaksi` (
     `kuantitas_barang` INT UNSIGNED NOT NULL DEFAULT 0,
     `subtotal` DECIMAL(15, 2) NULL DEFAULT 0.00,
     PRIMARY KEY (`id_transaksi`, `kode_barang`),
-    FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi`(`id`),
-    FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
+    FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`) ON DELETE CASCADE
 );
 
 CREATE TABLE `pesanan` (
@@ -55,7 +55,7 @@ CREATE TABLE `pesanan` (
     `tenggat_pesanan` DATE NULL DEFAULT (CURRENT_DATE),
     `subtotal` DECIMAL(15, 2) NULL DEFAULT 0.00,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`)
+    FOREIGN KEY (`kode_barang`) REFERENCES `barang`(`kode`) ON DELETE CASCADE
 );
 
 DELIMITER //
